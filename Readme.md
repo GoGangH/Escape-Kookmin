@@ -35,7 +35,6 @@
 |   S or ↓ | 뒤로 이동 |
 |   D or → | 오른쪽으로 이동 |
 |   Shift  | 상호작용 |
-| Spacebar | 페이지 넘김 |
 
 ## Game story
 -----
