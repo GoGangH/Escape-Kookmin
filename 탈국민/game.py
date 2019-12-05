@@ -17,7 +17,7 @@ class Game:
         self.beforStage = 0
         self.paused = False
         self.mapname = 'start'
-        
+
         self.shadow = pg.Surface((WIDTH, HEIGHT))
         self.shadow.fill(SHADOW_COLOR)
         self.shadow_mask = pg.image.load(path.join('image', LIGHTMASK)).convert_alpha()
@@ -42,8 +42,8 @@ class Game:
         # initialize all variables and do all the setup for a new game
         self.walls = pg.sprite.Group()
         self.items = pg.sprite.Group()
-        #self.items_dict = {}
         self.portals = pg.sprite.Group()
+        self.dialogues = pg.sprite.Group()
         self.camera = Camera(self.map.width, self.map.height)
         cnt = 0
         for tile_object in self.map.tmxdata.objects:
@@ -57,12 +57,15 @@ class Game:
                 Wall(self, tile_object.x, tile_object.y,
                          tile_object.width, tile_object.height)
             if tile_object.name == 'item':
-                item = Item(self,tile_object.type, tile_object.x, tile_object.y,
+                Item(self,tile_object.type, tile_object.x, tile_object.y,
                          tile_object.width, tile_object.height, tile_object.properties)
                 #self.items_dict[tile_object.name] = item
                 #self.test_item = item
             if tile_object.name == 'portal':
                 Portal(self,tile_object.type, tile_object.x, tile_object.y,
+                         tile_object.width, tile_object.height, tile_object.properties)
+            if tile_object.name == 'dialogue':
+                Dialogue(self,tile_object.type, tile_object.x, tile_object.y,
                          tile_object.width, tile_object.height, tile_object.properties)
 
     def run(self):
@@ -115,7 +118,7 @@ class Game:
 
     def prologue(self):
         #tutorial screen
-        set_music(SOUNDLIST[0])
+        set_music(SOUNDLIST[3])
         start = False
         game_folder = path.dirname(__file__)
         img_folder = path.join(game_folder, 'image')

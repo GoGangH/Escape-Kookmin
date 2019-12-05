@@ -256,10 +256,11 @@
   <object id="25" name="wall" x="1474" y="720" width="14" height="48"/>
   <object id="33" name="item" type="strong" x="1460" y="562" width="80" height="66">
    <properties>
-    <property name="dialogue length0" value="2"/>
+    <property name="dialogue length0" value="3"/>
     <property name="dialogue length1" type="int" value="0"/>
     <property name="dialogue00" value="아령을 들었다."/>
     <property name="dialogue01" value="삼각근이 강화되었다."/>
+    <property name="dialogue02" value="이 정도면 나갈 수 있을 것 같은데?"/>
    </properties>
   </object>
   <object id="36" name="portal" type="secondfloor" x="192" y="1008" width="48" height="96">
@@ -269,7 +270,7 @@
     <property name="dialogue00" value="나무로 된 문이 잠겨있다."/>
     <property name="dialogue01" value="굉장히 오래된 것 같다."/>
     <property name="dialogue02" value="나갈 방법을 찾아보자."/>
-    <property name="dialogue10" value="강화된 근육으로 문을 열었다."/>
+    <property name="dialogue10" value="강화된 근육으로 문을 부쉈다."/>
    </properties>
   </object>
   <object id="37" name="wall" x="768" y="288" width="576" height="22"/>

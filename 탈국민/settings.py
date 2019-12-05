@@ -50,7 +50,7 @@ CHAT_HEIGHT = 20
 CHAT_IMG = 'chat.png'
 
 #sound setting
-SOUNDLIST = ['backgrund.mp3','19.ogg','14.ogg']
+SOUNDLIST = ['backgrund.mp3','19.ogg','14.ogg', 'prologue.mp3', 'break.wav']
 game_dir = os.path.dirname(__file__)
 BGM = os.listdir(os.path.join(game_dir, 'bgm'))
 SFX = os.listdir(os.path.join(game_dir, 'sfx'))

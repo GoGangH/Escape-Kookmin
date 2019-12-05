@@ -2,6 +2,7 @@ import pygame as pg
 from settings import *
 import time
 from chat import *
+from sound import *
 
 vec = pg.math.Vector2
 
@@ -28,6 +29,9 @@ class Player(pg.sprite.Sprite):
             'cloth' : 0,
             'clothPortal' : 0,
             'muscle' : 0,
+        }
+        self.stageDialogue = {
+            'start' : 0,
         }
 
     def set_pos(self, x, y):
@@ -129,6 +133,7 @@ class Player(pg.sprite.Sprite):
                         if self.stageChk['clothPortal']==0:
                             self.stageChk['clothPortal']=1
                     else:
+                        set_sfx(SOUNDLIST[2])
                         self.Mapstage=PORTALMAP[sprite.name]
                 elif sprite.name == 'secondfloor' :
                     if self.stageChk['muscle'] == 0:
@@ -139,6 +144,7 @@ class Player(pg.sprite.Sprite):
                         self.chating = True
                         time.sleep(0.2)
                     elif self.stageChk['muscle'] == 1:
+                        set_sfx(SOUNDLIST[4])
                         self.chat = Chat(self.screen, sprite.dialoguelist, 1)
                         self.chat.drawchat()
                         self.chating = True
@@ -153,7 +159,18 @@ class Player(pg.sprite.Sprite):
                     self.Mapstage=PORTALMAP[sprite.name]
         else:
             self.Beforpos = self.pos
-            
+    
+    def chkdialogue(self):
+        hits = pg.sprite.spritecollide(self, self.game.dialogues, False)
+        if hits:
+            for sprite in hits:
+                if self.stageDialogue[sprite.name] == 0:
+                    self.chat = Chat(self.screen, sprite.dialoguelist, self.stageChk['clothPortal'], '쿠민')
+                    self.chat.drawchat()
+                    self.chating = True
+                    time.sleep(0.2)
+                    self.stageDialogue[sprite.name]=1
+
     def update(self):
     #캐릭터 위치 업데이트
         self.get_keys()
@@ -163,6 +180,7 @@ class Player(pg.sprite.Sprite):
         self.rect.y = self.pos.y
         self.chk_walls('y')
         self.chk_potal()
+        self.chkdialogue()
 
 class Wall(pg.sprite.Sprite):
     def __init__(self, game, x, y, w, h):
@@ -233,4 +251,34 @@ class Portal(pg.sprite.Sprite):
         for i in range(int(self.dialogue_length1)):
             a.append(self.properties['dialogue1'+str(i)])
         dialogues.append(a)
+        return dialogues
+
+class Dialogue(pg.sprite.Sprite):
+    def __init__(self, game, type, x, y, w, h, properties):
+        self.name = type
+        self.groups = game.dialogues
+        pg.sprite.Sprite.__init__(self, self.groups)
+        self.game = game
+        self.rect = pg.Rect(x, y, w, h)
+        self.hit_rect = self.rect
+        self.x = x
+        self.y = y
+        self.rect.x = x
+        self.rect.y = y
+        self.properties = properties
+        self.dialoguelist = self.make_dialogue()
+    
+    def make_dialogue(self):
+        dialogues = []
+        self.dialogue_length0 = self.properties['dialogue length0']
+        self.dialogue_length1 = self.properties['dialogue length1']
+        a=[]
+        for i in range(int(self.dialogue_length0)):
+            a.append(self.properties['dialogue0'+str(i)])
+        dialogues.append(a)
+        a=[]
+        for i in range(int(self.dialogue_length1)):
+            a.append(self.properties['dialogue1'+str(i)])
+        dialogues.append(a)
+        
         return dialogues

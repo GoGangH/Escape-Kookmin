@@ -5,6 +5,7 @@ from sprites import *
 from game import *
 
 g = Game()
+g.prologue()
 while True:
     g.new()
     g.run()
