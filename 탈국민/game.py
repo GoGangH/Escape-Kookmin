@@ -17,6 +17,13 @@ class Game:
         self.beforStage = 0
         self.paused = False
         self.mapname = 'start'
+        
+        self.shadow = pg.Surface((WIDTH, HEIGHT))
+        self.shadow.fill(SHADOW_COLOR)
+        self.shadow_mask = pg.image.load(path.join('image', LIGHTMASK)).convert_alpha()
+        self.shadow_mask = pg.transform.scale(self.shadow_mask, LIGHT_RADIUS)
+        self.shadow_rect = self.shadow_mask.get_rect()
+
         pg.mixer.init()
 
         self.all_sprites = pg.sprite.Group()
@@ -85,6 +92,7 @@ class Game:
         self.screen.blit(self.map_img, self.camera.apply_rect(self.map_rect))
         for sprite in self.all_sprites:
             self.screen.blit(sprite.image, self.camera.apply(sprite))
+        self.render_shadow()
         pg.display.flip()
 
     def events(self):
@@ -132,5 +140,12 @@ class Game:
             pg.display.update()
             time.sleep(0.04)
         pg.mixer.music.stop()
+
     def ending(self):
         pass
+
+    def render_shadow(self):
+        self.shadow.fill(SHADOW_COLOR)
+        self.shadow_rect.center = self.camera.apply(self.player).center
+        self.shadow.blit(self.shadow_mask, self.shadow_rect)
+        self.screen.blit(self.shadow, (0,0), special_flags = pg.BLEND_MULT)

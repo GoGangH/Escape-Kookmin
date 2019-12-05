@@ -39,6 +39,11 @@ PLAYER_SPEED = 180
 PLAYER_IMG = 'player.png'
 PLAYERCHANGE_IMG = 'player2.png'
 
+#Light Shadowing
+SHADOW_COLOR = (20, 20, 20)
+LIGHTMASK = 'light.png'
+LIGHT_RADIUS = (300, 300)
+
 #chat settings
 CHAT_WIDTH = WIDTH/2
 CHAT_HEIGHT = 20
