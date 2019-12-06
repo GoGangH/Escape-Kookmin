@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="40" height="30" tilewidth="48" tileheight="48" infinite="0" nextlayerid="8" nextobjectid="51">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="40" height="30" tilewidth="48" tileheight="48" infinite="0" nextlayerid="8" nextobjectid="57">
  <tileset firstgid="1" name="GRAY" tilewidth="48" tileheight="48" tilecount="1" columns="1">
   <image source="img/GRAY.png" width="48" height="48"/>
  </tileset>
@@ -251,10 +251,10 @@
   <object id="11" name="wall" x="1536" y="288" width="48" height="912"/>
   <object id="13" name="wall" x="1010" y="498" width="288" height="240"/>
   <object id="14" name="wall" x="772" y="648" width="38" height="230"/>
-  <object id="16" name="wall" x="384" y="918" width="192" height="100"/>
+  <object id="16" name="wall" x="384" y="918" width="192" height="109"/>
   <object id="24" name="wall" x="1488" y="672" width="48" height="144"/>
   <object id="25" name="wall" x="1474" y="720" width="14" height="48"/>
-  <object id="33" name="item" type="strong" x="1460" y="562" width="80" height="66">
+  <object id="33" name="item" type="strong" x="1471" y="575" width="69" height="53">
    <properties>
     <property name="dialogue length0" value="3"/>
     <property name="dialogue length1" type="int" value="0"/>
@@ -284,9 +284,9 @@
   <object id="40" name="player" type="secondfloor" x="247" y="1028" width="48" height="48"/>
   <object id="43" name="wall" x="960" y="280" width="48" height="90"/>
   <object id="44" name="wall" x="1056" y="278" width="48" height="90"/>
-  <object id="48" name="wall" x="1104" y="336" width="192" height="26"/>
-  <object id="49" name="wall" x="768" y="288" width="192" height="48"/>
-  <object id="50" name="item" type="strong" x="770.872" y="764.898" width="62.7014" height="66">
+  <object id="48" name="wall" x="1104" y="336" width="192" height="31"/>
+  <object id="49" name="wall" x="768" y="288" width="192" height="62"/>
+  <object id="50" name="item" type="strong" x="770.872" y="764.898" width="62.7014" height="48">
    <properties>
     <property name="dialogue length0" value="2"/>
     <property name="dialogue length1" type="int" value="0"/>
@@ -294,5 +294,46 @@
     <property name="dialogue01" value="이두가 강화되었다."/>
    </properties>
   </object>
+  <object id="51" name="item" type="trash" x="714.649" y="934" width="62.7014" height="66">
+   <properties>
+    <property name="dialogue length0" value="2"/>
+    <property name="dialogue length1" type="int" value="0"/>
+    <property name="dialogue00" value="더러운 쓰레기 통이다."/>
+    <property name="dialogue01" value="프로틴 껍데기가 잔득 들어있다."/>
+   </properties>
+  </object>
+  <object id="52" name="item" type="weight" x="1443" y="342" width="39" height="34">
+   <properties>
+    <property name="dialogue length0" type="int" value="2"/>
+    <property name="dialogue length1" type="int" value="0"/>
+    <property name="dialogue00" value="53kg 이다."/>
+    <property name="dialogue01" value="옷 입어서 그래!"/>
+   </properties>
+  </object>
+  <object id="53" name="item" type="height" x="1495" y="340" width="34" height="32">
+   <properties>
+    <property name="dialogue length0" type="int" value="2"/>
+    <property name="dialogue length1" type="int" value="0"/>
+    <property name="dialogue00" value="158cm이다."/>
+    <property name="dialogue01" value="160인걸로 하자!"/>
+   </properties>
+  </object>
+  <object id="54" name="item" type="boxing" x="1008" y="336" width="48" height="48">
+   <properties>
+    <property name="dialogue length0" type="int" value="2"/>
+    <property name="dialogue length1" type="int" value="0"/>
+    <property name="dialogue00" value="손이 닿지 않는다."/>
+    <property name="dialogue01" value="이상하다...."/>
+   </properties>
+  </object>
+  <object id="55" name="item" type="ball" x="775" y="354" width="179" height="30">
+   <properties>
+    <property name="dialogue length0" type="int" value="2"/>
+    <property name="dialogue length1" type="int" value="0"/>
+    <property name="dialogue00" value="공이 들어있다."/>
+    <property name="dialogue01" value="꺼내면 혼나지 않을까 ?"/>
+   </properties>
+  </object>
+  <object id="56" name="wall" x="768" y="288" width="193" height="64"/>
  </objectgroup>
 </map>

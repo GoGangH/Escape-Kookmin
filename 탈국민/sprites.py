@@ -110,6 +110,10 @@ class Player(pg.sprite.Sprite):
                     self.chat = Chat(self.screen, sprite.dialoguelist, 0)
                     self.chat.drawchat()
                     self.stageChk['muscle'] = 1
+                else :
+                    self.chating = True
+                    self.chat = Chat(self.screen, sprite.dialoguelist, 0)
+                    self.chat.drawchat()
         else:
             chatting = [['멍청하게 시간을 날리고 있다.'],['걷는건 space가 아니라 w키다'],['bug인가?'],['그만해 이제 대사없어']]
             self.chating = True
