@@ -138,19 +138,14 @@ class Game:
         set_music(SOUNDLIST[3])
         start = False
         pImage = []
-        print(PROLOGUEIMAGE)
         for i in PROLOGUEIMAGE:
             pImage.append(pg.image.load(path.join(PROLOGUEIMAGE_DIR, i)))
-            print(i)
-
         
-        cnt = 0    
         for img in pImage :
-            cnt += 1
             self.screen.blit(img ,self.rect)
             pg.display.update()
             time.sleep(0.3)
-            print(cnt)
+            # 코드는 실행되고 있으나 python이 응답없음으로 blit가 멈춤, 기다리면 함수는 종료됨.
         
         time.sleep(0.4)
         print('프롤로그 끝')
