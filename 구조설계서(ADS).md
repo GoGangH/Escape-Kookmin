@@ -1,8 +1,9 @@
 구조설계서(ADS)
 ===
-
 ---
-game.py
+
+### game.py
+
 | 클래스 | 메서드 | 입력인자 | 출력인자 | 기능 |
 | ---- | ---- | ---- | ---- | ---- |
 | Game | `load_data` | - | - | 맵, 캐릭터 등 이미지의 데이터를 가져온다. |
@@ -15,7 +16,9 @@ game.py
 |  | `prologue` | - | - | 시작하기전 전반적인 스토리를 설명해준다. |
 |  | `ending` | - | - | 끝! |
 ---
-sprites.py
+
+### sprites.py
+
 | 클래스 | 메서드 | 입력인자 | 출력인자 | 기능 |
 | ---- | ---- | ---- | ---- | ---- |
 | Player | `__init__` | game, x, y, screen, stage | - | class 객체를 선언시 class의 속성을 정의 한다. |
@@ -30,7 +33,8 @@ sprites.py
 | Item | `__init__` | game, type, x, y, w, h, properties | - | class 객체를 선언시 class의 속성을 정의 한다. |
 |  | `make_dialogue` | - | - | tmx에서 properties를 입력받아 멤버 리스트에 대화를 저장한다. |
 ---
-tilemap.py
+
+### tilemap.py
 
 | 클래스 | 메서드 | 입력인자 | 출력인자 | 기능 |
 | ---- | ---- | ---- | ---- | ---- |
@@ -42,14 +46,15 @@ tilemap.py
 |  | `apply` | entity | entity.rect.move(self.camera.topleft) | 캐릭터의 위치를 정해준다. |
 |  | `apply_rect` | rect | rect.move(self.camera.topleft) | 캐릭터의 움직임을 조정하는 키 값을 처리한다. |
 |  | `update` | target | - | 캐릭터가 움직이기전 벽이 있는지 체크한다. |
-
 ---
-chat.py
+
+### chat.py
 
 | 클래스 | 메서드 | 입력인자 | 출력인자 | 기능 |
 | ---- | ---- | ---- | ---- | ---- |
 | Chat | `__init__` | screen, dialogue, index=0, chat='' | - | class 객체를 선언시 class의 속성을 정의 한다. |
-|  | `chating` | - | - |  |
-|  | `drawText` | - | - |  |
-|  | `hasNextPage` | - | - |  |
+|  | `chating` | - | - | 채팅 배경 이미지를 게임 스크린에 그린다. |
+|  | `drawText` | - | - | 채팅 내용을 게임 스크린에 그린다. |
+| | `drawchat` | - | - | `chating`, `drawText`를 실행하여 스크린에 그려낸다. |
+|  | `hasNextPage` | - | boolean | 더 그릴 채팅이 남아있는지 판단한다. |
 
