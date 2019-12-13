@@ -1,4 +1,7 @@
 import os
+
+GAME_DIR = os.path.dirname(__file__)
+
 # define some colors (R, G, B)
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
@@ -30,8 +33,11 @@ PORTALMAP = {
 }
 
 #tutorial setting
-STARTIMAGE = 'start.png'
-TUTORIALIMAGE = ['p0.png', 'p1.png', 'p2.png', 'p3.png']
+STARTIMAGE_DIR = os.path.join(GAME_DIR, 'image\\startscreen')
+STARTIMAGE = os.listdir(STARTIMAGE_DIR)
+
+PROLOGUEIMAGE_DIR = os.path.join(GAME_DIR, 'image\\prologue')
+PROLOGUEIMAGE = os.listdir(PROLOGUEIMAGE_DIR)
 PAGEBLACK = 'black2.png'
 
 #player settings
@@ -51,6 +57,5 @@ CHAT_IMG = 'chat.png'
 
 #sound setting
 SOUNDLIST = ['backgrund.mp3','19.ogg','14.ogg', 'prologue.mp3', 'break.wav']
-game_dir = os.path.dirname(__file__)
-BGM = os.listdir(os.path.join(game_dir, 'bgm'))
-SFX = os.listdir(os.path.join(game_dir, 'sfx'))
+BGM = os.listdir(os.path.join(GAME_DIR, 'bgm'))
+SFX = os.listdir(os.path.join(GAME_DIR, 'sfx'))

@@ -116,32 +116,44 @@ class Game:
                 if event.type == pg.KEYDOWN:
                     return
 
+    def startscreen(self):
+        set_music(SOUNDLIST[3])
+        Image = []
+        for i in STARTIMAGE:
+            Image.append(pg.image.load(path.join(STARTIMAGE_DIR, i)))
+        
+        cnt = 0
+        running = True
+        while running:
+            self.screen.blit(Image[cnt%4], self.rect)
+            pg.display.update()
+            cnt+=1
+            time.sleep(0.2)
+            for event in pg.event.get():# User did something
+                if event.type == pg.KEYDOWN:
+                    running = False
+
     def prologue(self):
         #tutorial screen
         set_music(SOUNDLIST[3])
         start = False
-        game_folder = path.dirname(__file__)
-        img_folder = path.join(game_folder, 'image')
         pImage = []
-        for i in TUTORIALIMAGE:
-            pImage.append(pg.image.load(path.join(img_folder, i)))
-        begin_image = pg.image.load(path.join(img_folder, STARTIMAGE))
-        black_image = pg.image.load(path.join(img_folder, PAGEBLACK))
+        print(PROLOGUEIMAGE)
+        for i in PROLOGUEIMAGE:
+            pImage.append(pg.image.load(path.join(PROLOGUEIMAGE_DIR, i)))
+            print(i)
 
-        self.screen.blit(begin_image ,self.rect)
-        pg.display.update()
-        self.wait()
-            
+        
+        cnt = 0    
         for img in pImage :
+            cnt += 1
             self.screen.blit(img ,self.rect)
             pg.display.update()
-            time.sleep(0.5)
-            self.wait()
-
-        for i in range(13):
-            self.screen.blit(black_image, self.rect)
-            pg.display.update()
-            time.sleep(0.04)
+            time.sleep(0.3)
+            print(cnt)
+        
+        time.sleep(0.4)
+        print('프롤로그 끝')
         pg.mixer.music.stop()
 
     def ending(self):
