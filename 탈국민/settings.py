@@ -1,3 +1,6 @@
+'''
+게임의 상수값 설정
+'''
 import os
 
 GAME_DIR = os.path.dirname(__file__)
@@ -24,8 +27,8 @@ GRIDHEIGHT = HEIGHT / TILESIZE
 
 #map setting
 STAGELEVEL = 0
-STAGETMX = ['showerRoom.tmx', 'fitness.tmx', 'secondfloor.tmx']
-STAGENAME = ['shower', 'fitness', 'secondfloor']
+STAGETMX = ['showerRoom.tmx', 'fitness.tmx', 'secondfloor.tmx', '4thfloor.tmx']
+STAGENAME = ['shower', 'fitness', 'secondfloor', '4thfloor']
 PORTALMAP = {
     'fitness' : 1,
     'shower' : 0,

@@ -8,6 +8,7 @@ vec = pg.math.Vector2
 
 class Player(pg.sprite.Sprite):
     def __init__(self, game, x, y, screen, stage):
+        # 초기값 설정
         self.groups = game.all_sprites
         pg.sprite.Sprite.__init__(self, self.groups)
         self.game = game
@@ -35,9 +36,11 @@ class Player(pg.sprite.Sprite):
         }
 
     def set_pos(self, x, y):
+        # 위치 설정
         self.pos = vec(x, y)
         
     def get_keys(self):
+        # 키 입력받기
         self.vel = vec(0, 0)
         self.keys = pg.key.get_pressed()
 
@@ -74,7 +77,7 @@ class Player(pg.sprite.Sprite):
         self.beforKey = self.keys
 
     def chk_walls(self, dir):
-    #캐릭터를 움직이기 전에 벽이 있는지 확인
+        #캐릭터를 움직이기 전에 벽이 있는지 확인
         if dir == 'x':
             hits = pg.sprite.spritecollide(self, self.game.walls, False)
             if hits:
@@ -95,6 +98,7 @@ class Player(pg.sprite.Sprite):
                 self.rect.y = self.pos.y
     
     def chk_items(self):
+        # space bar 클릭시 item 유무 확인 및 상호작용
         hits = pg.sprite.spritecollide(self, self.game.items, False)
         if hits:
             set_sfx(SOUNDLIST[1])
@@ -123,6 +127,7 @@ class Player(pg.sprite.Sprite):
             self.stupidDegree%=len(chatting)
 
     def chk_potal(self):
+        # 캐릭터의 위치와 포탈의 위치 비교
         hits = pg.sprite.spritecollide(self, self.game.portals, False)
         if hits and self.chating == False:
             for sprite in hits:
@@ -165,6 +170,7 @@ class Player(pg.sprite.Sprite):
             self.Beforpos = self.pos
     
     def chkdialogue(self):
+        # 대화가 있는지 확인
         hits = pg.sprite.spritecollide(self, self.game.dialogues, False)
         if hits:
             for sprite in hits:
@@ -214,6 +220,7 @@ class Item(pg.sprite.Sprite):
         self.dialoguelist = self.make_dialogue()
     
     def make_dialogue(self):
+        #tmx에 dialogues를 list로 변경
         dialogues = []
         self.dialogue_length0 = self.properties['dialogue length0']
         self.dialogue_length1 = self.properties['dialogue length1']
@@ -244,6 +251,7 @@ class Portal(pg.sprite.Sprite):
         self.dialoguelist = self.make_dialogue()
     
     def make_dialogue(self):
+        #tmx에 dialogues를 list로 변경
         dialogues = []
         self.dialogue_length0 = self.properties['dialogue length0']
         self.dialogue_length1 = self.properties['dialogue length1']
@@ -273,6 +281,7 @@ class Dialogue(pg.sprite.Sprite):
         self.dialoguelist = self.make_dialogue()
     
     def make_dialogue(self):
+        #tmx에 dialogues를 list로 변경
         dialogues = []
         self.dialogue_length0 = self.properties['dialogue length0']
         self.dialogue_length1 = self.properties['dialogue length1']

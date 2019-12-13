@@ -24,6 +24,7 @@ class Chat:
         self.screen.blit(self.chat_img, self.chatRect)
 
     def drawText(self):
+        # 대화창속 텍스트 설정
         textobj = self.font.render(self.chatter, True, WHITE)
         textrect = textobj.get_rect()
         textrect.centerx = CHAT_WIDTH-170
@@ -39,6 +40,7 @@ class Chat:
         textBoxRect.topleft = (0,WIDTH-textBoxRect.height)
 
     def drawchat(self):
+        # chat 그리기
         self.chating()
         self.drawText()
         self.indexY += 1

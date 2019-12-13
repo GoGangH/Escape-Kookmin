@@ -8,6 +8,7 @@ from sound import *
 
 class Game:
     def __init__(self):
+        # 초기 설정값
         pg.init()
         self.screen = pg.display.set_mode((WIDTH, HEIGHT))
         pg.display.set_caption(TITLE)
@@ -31,6 +32,7 @@ class Game:
         self.load_data()
 
     def load_data(self):
+        # 게임의 이미지 정보 로드
         game_folder = path.dirname(__file__)
         img_folder = path.join(game_folder, 'image')
         map_folder = path.join(game_folder, 'maps')
@@ -39,7 +41,7 @@ class Game:
         self.map_rect = self.map_img.get_rect()
 
     def new(self):
-        # initialize all variables and do all the setup for a new game
+        # 게임의 sprite 그룹 정의 및 플레이어 위치 설정
         self.walls = pg.sprite.Group()
         self.items = pg.sprite.Group()
         self.portals = pg.sprite.Group()
@@ -59,8 +61,6 @@ class Game:
             if tile_object.name == 'item':
                 Item(self,tile_object.type, tile_object.x, tile_object.y,
                          tile_object.width, tile_object.height, tile_object.properties)
-                #self.items_dict[tile_object.name] = item
-                #self.test_item = item
             if tile_object.name == 'portal':
                 Portal(self,tile_object.type, tile_object.x, tile_object.y,
                          tile_object.width, tile_object.height, tile_object.properties)
@@ -69,7 +69,7 @@ class Game:
                          tile_object.width, tile_object.height, tile_object.properties)
 
     def run(self):
-        # game loop - set self.playing = False to end the game
+        # 게임 동작
         self.playing = True
         set_music(SOUNDLIST[0])
         while self.playing:
@@ -86,7 +86,7 @@ class Game:
                 self.draw()
 
     def update(self):
-        # update portion of the game loop
+        # 게임 카메라, sprites update  
         self.all_sprites.update()
         self.camera.update(self.player)
 
@@ -134,7 +134,7 @@ class Game:
                     running = False
 
     def prologue(self):
-        #tutorial screen
+        #prologue screen
         set_music(SOUNDLIST[3])
         start = False
         pImage = []
@@ -157,9 +157,11 @@ class Game:
         pg.mixer.music.stop()
 
     def ending(self):
+        #game ending
         pass
 
     def render_shadow(self):
+        #player shadow render
         self.shadow.fill(SHADOW_COLOR)
         self.shadow_rect.center = self.camera.apply(self.player).center
         self.shadow.blit(self.shadow_mask, self.shadow_rect)
