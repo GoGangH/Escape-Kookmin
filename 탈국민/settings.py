@@ -32,7 +32,7 @@ GRIDHEIGHT = HEIGHT / TILESIZE
 
 #map setting
 STAGELEVEL = 0
-STAGETMX = ['choicetest.tmx', 'showerRoom.tmx', 'fitness.tmx', 'secondfloor.tmx', '4thfloor.tmx']
+STAGETMX = ['showerRoom.tmx', 'fitness.tmx', 'secondfloor.tmx', '4thfloor.tmx']
 STAGENAME = ['shower', 'fitness', 'secondfloor', '4thfloor']
 PORTALMAP = {
     'fitness' : 1,
@@ -52,7 +52,13 @@ PLAYER_IMG = [
     ['koomin20.png','koomin21.png','koomin20.png','koomin22.png'],
     ['koomin30.png','koomin31.png','koomin30.png','koomin32.png']
 ]
-PLAYERCHANGE_IMG = 'player2.png'
+PLAYER_IMGB = [
+    ['koominB00.png','koominB01.png','koominB00.png','koominB02.png'],
+    ['koominB10.png','koominB11.png','koominB10.png','koominB12.png'],
+    ['koominB20.png','koominB21.png','koominB20.png','koominB22.png'],
+    ['koominB30.png','koominB31.png','koominB30.png','koominB32.png']
+]
+PLAYER_IMGNAME = [PLAYER_IMG, PLAYER_IMGB]
 
 # Npc settings
 NPC_IMG = ['xycar00.png','','xycar20.png']

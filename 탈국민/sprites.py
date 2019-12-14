@@ -16,7 +16,7 @@ class Player(pg.sprite.Sprite):
         self.image = pg.Surface((TILESIZE, TILESIZE))
         self.game_folder = os.path.dirname(__file__)
         self.img_folder = os.path.join(self.game_folder, 'image')
-        self.image = pg.image.load(os.path.join(self.img_folder, PLAYER_IMG[0][0])).convert_alpha()
+        self.image = pg.image.load(os.path.join(self.img_folder, PLAYER_IMGNAME[0][0][0])).convert_alpha()
         self.beforKey = None
         self.rect = self.image.get_rect()
         self.vel = vec(0, 0)
@@ -31,6 +31,7 @@ class Player(pg.sprite.Sprite):
         self.posdirection=0
         self.beformove = 0
         self.move =0
+        self.imgname = 0
         self.stageChk = {
             'quiz' : 0,
             'cloth' : 0,
@@ -100,10 +101,10 @@ class Player(pg.sprite.Sprite):
     def chkdirection(self):
         if self.direction == 1 or self.direction == 3:
             num = int((abs(self.posdirection-self.pos.x)//25)%4)
-            self.image = pg.image.load(os.path.join(self.img_folder, PLAYER_IMG[self.direction][num])).convert_alpha()
+            self.image = pg.image.load(os.path.join(self.img_folder, PLAYER_IMGNAME[self.imgname][self.direction][num])).convert_alpha()
         if self.direction == 0 or self.direction == 2:
             num = int((abs(self.posdirection-self.pos.y)//25)%4)
-            self.image = pg.image.load(os.path.join(self.img_folder, PLAYER_IMG[self.direction][num])).convert_alpha()
+            self.image = pg.image.load(os.path.join(self.img_folder, PLAYER_IMGNAME[self.imgname][self.direction][num])).convert_alpha()
         if self.beformove == num and num!=0:
             self.move+=1
             self.beformove = num
@@ -151,15 +152,19 @@ class Player(pg.sprite.Sprite):
                         self.quiz = Quiz(self.screen, self.game, sprite.properties['answer'])
                         self.quiz.startQuiz()
                     self.stageChk[sprite.name] = 1
-                if sprite.name == 'cloth' :
-                    print(sprite.dialoguelist[self.stageChk[sprite.name]])
+                if sprite.name == 'cloth':
                     self.chating = True
                     self.chatmake(sprite.dialoguelist, self.stageChk[sprite.name])
+                    self.imgname = 1
+                    self.image = pg.image.load(os.path.join(self.img_folder, PLAYER_IMGNAME[self.imgname][0][0])).convert_alpha()
                     self.stageChk[sprite.name] = 1
-                if sprite.name == 'strong' :
+                elif sprite.name == 'strong' :
                     self.chating = True
                     self.chatmake(sprite.dialoguelist, 0)
                     self.stageChk['muscle'] = 1
+                else :
+                    self.chating = True
+                    self.chatmake(sprite.dialoguelist, 0)
         else:
             chatting = [['멍청하게 시간을 날리고 있다.'],['걷는건 space가 아니라 w키다'],['bug인가?'],['그만해 이제 대사없어']]
             self.chating = True
@@ -219,6 +224,7 @@ class Player(pg.sprite.Sprite):
                     self.stageDialogue[sprite.name]=1
     
     def chatmake(self, dialogue, num, name=''):
+        self.chating = True
         self.chat = Chat(self.screen, dialogue, num, name)
         self.chat.drawchat()
 
