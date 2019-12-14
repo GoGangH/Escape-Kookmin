@@ -2,9 +2,10 @@ import pygame as pg
 import os, sys
 from settings import *
 from sound import *
+from chat import *
 
 class Quiz:
-    def __init__(self, screen, quizanswer, text = ''):
+    def __init__(self, screen, game, quizanswer, text = ''):
         self.screen = screen
         self.answer = quizanswer
         self.enter_img = pg.image.load(os.path.join(QUIZ_DIR, ENTER_IMG))
@@ -16,7 +17,7 @@ class Quiz:
         self.text = self.font.render(text, True, BLACK)
         self.current_string = ""
         self.quizplay = False
-
+        self.chat = None
     
     def drawEnter(self):
         self.screen.blit(self.enter_img, self.enter_rect)
@@ -25,7 +26,7 @@ class Quiz:
         self.screen.blit(self.quiz_img, self.quiz_rect)
 
     def drawText(self):
-        self.text = self.font.render(self.current_string, True, BLACK)
+        self.text = self.font.render(self.current_string + "_", True, BLACK)
         textrect = self.text.get_rect()
         textrect.x = 149
         textrect.y = 468.5
@@ -33,6 +34,7 @@ class Quiz:
 
     def get_answer(self):
         answering = True
+        self.current_string.lstrip()
         while answering:
             for evt in pg.event.get():
                 if evt.type == pg.KEYDOWN:
@@ -46,10 +48,9 @@ class Quiz:
                         pg.quit()
                         sys.exit()
                     elif evt.key == pg.K_RETURN or evt.key == pg.K_KP_ENTER:
+                        self.current_string.lstrip()
                         self.drawQuiz()
-                        self.drawCorrect()
-                        if self.isCorrect():
-                            answering = False
+                        answering = False
                     elif evt.unicode.isalpha() or evt.unicode.isnumeric() or evt.unicode in SYMBOLS:
                         self.current_string += evt.unicode
                         self.drawEnter()
@@ -57,6 +58,7 @@ class Quiz:
                         pg.display.update()
 
     def isCorrect(self):
+        self.current_string.strip()
         if self.answer == self.current_string:
             return True
         else:
@@ -79,11 +81,15 @@ class Quiz:
     def startQuiz(self):
         self.quizplay = True
         while self.quizplay:
+            self.screen.fill(BLACK)
             self.drawQuiz()
             self.drawEnter()
             self.drawText()
             self.get_answer()
             if self.isCorrect():
-                self.quizplay = False
-
-
+                self.chat = Chat(self.screen, [["정답!"]], 0)
+                self.chat.drawchat()
+            else:
+                self.chat = Chat(self.screen, [["오답!"]], 0)
+                self.chat.drawchat()
+            self.quizplay = False

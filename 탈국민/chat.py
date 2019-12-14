@@ -4,7 +4,7 @@ from settings import *
 from sound import *
 
 class Chat:
-    def __init__(self, screen, dialogue, index, chat=''):
+    def __init__(self, screen, dialogue, index=0, chat=''):
         self.chatter = chat
         self.screen = screen
         self.backgroundimg = pg.image.load(os.path.join(CHAT_DIR, CHAT_IMG))

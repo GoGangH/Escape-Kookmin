@@ -76,7 +76,6 @@ class Player(pg.sprite.Sprite):
                 self.chkdirection()
                 self.vel.y = PLAYER_SPEED
             elif self.keys[pg.K_SPACE]:
-                self.game.draw()
                 self.chk_items()
                 time.sleep(0.5)
             else :
@@ -87,9 +86,8 @@ class Player(pg.sprite.Sprite):
             if self.keys[pg.K_f]:
                 self.chating = False
             if self.keys[pg.K_SPACE]:
-                '''time.sleep 걸고 쓰면 space로 페이지 넘기기 가능'''
+                self.game.draw()
                 if self.chat.hasNextPage():
-                    self.game.draw()
                     self.chat.drawchat()
                     time.sleep(0.5)
                 else:
@@ -147,12 +145,9 @@ class Player(pg.sprite.Sprite):
             for sprite in hits:
                 if sprite.name == 'quiz':
                     self.chating = True
-                    self.chat = Chat(self.screen, sprite.dialoguelist, 0)
-                    self.chat.drawchat()
-                    if self.keys[pg.K_SPACE]:
-                        self.quiz = Quiz(self.screen, sprite.properties['answer'])
-                        self.quiz.startQuiz()
-                    self.game.draw()
+                    self.chatmake(sprite.dialoguelist, 0)
+                    self.quiz = Quiz(self.screen, self.game, sprite.properties['answer'])
+                    self.quiz.startQuiz()
                 if sprite.name == 'cloth' :
                     print(sprite.dialoguelist[self.stageChk[sprite.name]])
                     self.chating = True
