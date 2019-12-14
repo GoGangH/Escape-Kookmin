@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="40" height="40" tilewidth="48" tileheight="48" infinite="0" nextlayerid="4" nextobjectid="10">
  <tileset firstgid="1" name="48_city" tilewidth="48" tileheight="48" tilecount="1344" columns="32">
-  <image source="../../../SW2-ADProject/maps/img/48_city.png" width="1536" height="2016"/>
+  <image source="img/48_city.png" width="1536" height="2016"/>
  </tileset>
  <layer id="1" name="Tile Layer 1" width="40" height="40">
   <data encoding="csv">
