@@ -58,7 +58,7 @@ class Quiz:
                         pg.display.update()
 
     def isCorrect(self):
-        self.current_string.strip()
+        self.current_string=self.current_string.strip()
         if self.answer == self.current_string:
             return True
         else:
