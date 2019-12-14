@@ -15,7 +15,7 @@ class Player(pg.sprite.Sprite):
         self.image = pg.Surface((TILESIZE, TILESIZE))
         self.game_folder = os.path.dirname(__file__)
         self.img_folder = os.path.join(self.game_folder, 'image')
-        self.image = pg.image.load(os.path.join(self.img_folder, PLAYER_IMG)).convert_alpha()
+        self.image = pg.image.load(os.path.join(self.img_folder, PLAYER_IMG[0][0])).convert_alpha()
         self.beforKey = None
         self.rect = self.image.get_rect()
         self.vel = vec(0, 0)
@@ -26,6 +26,10 @@ class Player(pg.sprite.Sprite):
         self.chating = False
         self.Mapstage = stage
         self.stupidDegree = 0
+        self.direction=0
+        self.posdirection=0
+        self.beformove = 0
+        self.move =0
         self.stageChk = {
             'cloth' : 0,
             'clothPortal' : 0,
@@ -38,6 +42,7 @@ class Player(pg.sprite.Sprite):
     def set_pos(self, x, y):
         # 위치 설정
         self.pos = vec(x, y)
+        self.posdirection = self.pos.y
         
     def get_keys(self):
         # 키 입력받기
@@ -46,20 +51,26 @@ class Player(pg.sprite.Sprite):
 
         if self.chating == False:
             if self.keys[pg.K_LEFT] or self.keys[pg.K_a]:
+                if self.direction != 1 :
+                    self.posdirection=self.pos.x
+                    self.direction=1
+                self.chkdirection()
                 self.vel.x = -PLAYER_SPEED
-                #if(keys!=self.beforKey):
-                    #self.image = pg.transform.flip(self.image, False, True)
             elif self.keys[pg.K_RIGHT] or self.keys[pg.K_d]:
                 self.vel.x = PLAYER_SPEED
-                #if(keys!=self.beforKey):
-                    #self.image = pg.transform.flip(self.image, False, True)
             elif self.keys[pg.K_UP] or self.keys[pg.K_w]:
                 self.vel.y = -PLAYER_SPEED
             elif self.keys[pg.K_DOWN] or self.keys[pg.K_s]:
+                if self.direction != 0 :
+                    self.posdirection=self.pos.y
+                    self.direction=0
+                self.chkdirection()
                 self.vel.y = PLAYER_SPEED
             elif self.keys[pg.K_SPACE]:
                 self.chk_items()
                 time.sleep(0.5)
+            else :
+                self.chkdirection()
             if self.vel.x != 0 and self.vel.y != 0:
                 self.vel *= 0.7071
         else:
@@ -75,6 +86,26 @@ class Player(pg.sprite.Sprite):
                     time.sleep(0.2)
 
         self.beforKey = self.keys
+
+    def chkdirection(self):
+        if self.direction == 1:
+            num = int((abs(self.posdirection-self.pos.x)//25)%4)
+            self.image = pg.image.load(os.path.join(self.img_folder, PLAYER_IMG[self.direction][num])).convert_alpha()
+        if self.direction == 0:
+            num = int((abs(self.posdirection-self.pos.y)//25)%4)
+            self.image = pg.image.load(os.path.join(self.img_folder, PLAYER_IMG[self.direction][num])).convert_alpha()
+        if self.beformove == num and num!=0:
+            self.move+=1
+            self.beformove = num
+        else :
+            self.move = 0
+            self.beformove = num
+        if self.move > 60 :
+            if self.direction == 1 :
+                self.posdirection = self.pos.x
+            else :
+                self.posdirection = self.pos.y
+            self.move = 0
 
     def chk_walls(self, dir):
         #캐릭터를 움직이기 전에 벽이 있는지 확인

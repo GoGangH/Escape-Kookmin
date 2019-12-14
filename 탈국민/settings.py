@@ -45,7 +45,10 @@ PAGEBLACK = 'black2.png'
 
 #player settings
 PLAYER_SPEED = 180
-PLAYER_IMG = 'player.png'
+PLAYER_IMG = [
+    ['koomin00.png','koomin01.png','koomin00.png','koomin02.png'],
+    ['koomin10.png','koomin11.png','koomin10.png','koomin12.png']
+]
 PLAYERCHANGE_IMG = 'player2.png'
 
 #Light Shadowing

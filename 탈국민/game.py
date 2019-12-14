@@ -128,7 +128,7 @@ class Game:
             self.screen.blit(Image[cnt%4], self.rect)
             pg.display.update()
             cnt+=1
-            time.sleep(0.2)
+            time.sleep(0.7)
             for event in pg.event.get():# User did something
                 if event.type == pg.KEYDOWN:
                     running = False
