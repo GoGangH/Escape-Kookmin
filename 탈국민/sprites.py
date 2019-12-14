@@ -152,7 +152,7 @@ class Player(pg.sprite.Sprite):
                         self.quiz = Quiz(self.screen, self.game, sprite.properties['answer'])
                         self.quiz.startQuiz()
                     self.stageChk[sprite.name] = 1
-                if sprite.name == 'cloth':
+                elif sprite.name == 'cloth':
                     self.chating = True
                     self.chatmake(sprite.dialoguelist, self.stageChk[sprite.name])
                     self.imgname = 1
