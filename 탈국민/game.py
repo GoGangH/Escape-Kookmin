@@ -44,6 +44,7 @@ class Game:
         # 게임의 sprite 그룹 정의 및 플레이어 위치 설정
         self.walls = pg.sprite.Group()
         self.items = pg.sprite.Group()
+        self.npcs = pg.sprite.Group()
         self.portals = pg.sprite.Group()
         self.dialogues = pg.sprite.Group()
         self.camera = Camera(self.map.width, self.map.height)
@@ -55,6 +56,8 @@ class Game:
                     self.player.set_pos(tile_object.x, tile_object.y)
                     if tile_object.type == 'start' :
                         self.mapname = 'shower'
+            if tile_object.name == 'xycar':
+                NPC(self, tile_object.x, tile_object.y)
             if tile_object.name == 'wall':
                 Wall(self, tile_object.x, tile_object.y,
                          tile_object.width, tile_object.height)
@@ -77,6 +80,8 @@ class Game:
             self.events()
             if self.mapStage!=self.player.Mapstage:
                 self.mapStage = self.player.Mapstage
+                for sprite in self.npcs :
+                    sprite.npckill()
                 self.load_data()
                 self.new()
                 self.mapname = STAGENAME[self.mapStage]
@@ -89,6 +94,12 @@ class Game:
         # 게임 카메라, sprites update  
         self.all_sprites.update()
         self.camera.update(self.player)
+        hits = pg.sprite.spritecollide(self.player, self.npcs, False)
+        direction_list = [vec(0,-NPC_KNOCKBACK),vec(NPC_KNOCKBACK,0),vec(0, NPC_KNOCKBACK),vec(-NPC_KNOCKBACK,0)]
+        chatting = [['뭐해 안비켜?']]
+        if hits:
+            self.player.pos += direction_list[self.player.direction]
+            self.player.chatmake(chatting, 0, '???')
 
     def draw(self):
         #스크린 draw
@@ -148,7 +159,6 @@ class Game:
             # 코드는 실행되고 있으나 python이 응답없음으로 blit가 멈춤, 기다리면 함수는 종료됨.
         
         time.sleep(0.4)
-        print('프롤로그 끝')
         pg.mixer.music.stop()
 
     def ending(self):

@@ -154,25 +154,18 @@ class Player(pg.sprite.Sprite):
                         self.quiz.startQuiz()
                     self.game.draw()
                 if sprite.name == 'cloth' :
+                    print(sprite.dialoguelist[self.stageChk[sprite.name]])
                     self.chating = True
-                    self.chat = Chat(self.screen, sprite.dialoguelist, self.stageChk['cloth'])
-                    self.chat.drawchat()
+                    self.chatmake(sprite.dialoguelist, self.stageChk[sprite.name])
                     self.stageChk[sprite.name] = 1
-                    self.image = pg.image.load(os.path.join(self.img_folder, PLAYERCHANGE_IMG)).convert_alpha()
                 if sprite.name == 'strong' :
                     self.chating = True
-                    self.chat = Chat(self.screen, sprite.dialoguelist, 0)
-                    self.chat.drawchat()
+                    self.chatmake(sprite.dialoguelist, 0)
                     self.stageChk['muscle'] = 1
-                else :
-                    self.chating = True
-                    self.chat = Chat(self.screen, sprite.dialoguelist, 0)
-                    self.chat.drawchat()
         else:
             chatting = [['멍청하게 시간을 날리고 있다.'],['걷는건 space가 아니라 w키다'],['bug인가?'],['그만해 이제 대사없어']]
             self.chating = True
-            self.chat = Chat(self.screen, chatting, self.stupidDegree)
-            self.chat.drawchat()
+            self.chatmake(chatting, self.stupidDegree)
             self.stupidDegree+=1
             self.stupidDegree%=len(chatting)
 
@@ -185,8 +178,7 @@ class Player(pg.sprite.Sprite):
                     if self.stageChk['cloth'] == 0:
                         self.pos = self.Beforpos
                         self.pos.y-=20
-                        self.chat = Chat(self.screen, sprite.dialoguelist, self.stageChk['clothPortal'])
-                        self.chat.drawchat()
+                        self.chatmake(sprite.dialoguelist, self.stageChk['clothPortal'])
                         self.chating = True
                         time.sleep(0.2)
                         if self.stageChk['clothPortal']==0:
@@ -198,14 +190,12 @@ class Player(pg.sprite.Sprite):
                     if self.stageChk['muscle'] == 0:
                         self.pos = self.Beforpos
                         self.pos.x+=20
-                        self.chat = Chat(self.screen, sprite.dialoguelist, 0)
-                        self.chat.drawchat()
+                        self.chatmake(sprite.dialoguelist, 0)
                         self.chating = True
                         time.sleep(0.2)
                     elif self.stageChk['muscle'] == 1:
                         set_sfx(SOUNDLIST[4])
-                        self.chat = Chat(self.screen, sprite.dialoguelist, 1)
-                        self.chat.drawchat()
+                        self.chatmake(sprite.dialoguelist, 1)
                         self.chating = True
                         time.sleep(1)
                         self.Mapstage=PORTALMAP[sprite.name]
@@ -225,11 +215,14 @@ class Player(pg.sprite.Sprite):
         if hits:
             for sprite in hits:
                 if self.stageDialogue[sprite.name] == 0:
-                    self.chat = Chat(self.screen, sprite.dialoguelist, self.stageChk['clothPortal'], '쿠민')
-                    self.chat.drawchat()
                     self.chating = True
+                    self.chatmake(sprite.dialoguelist, self.stageChk['clothPortal'],'쿠민')
                     time.sleep(0.2)
                     self.stageDialogue[sprite.name]=1
+    
+    def chatmake(self, dialogue, num, name=''):
+        self.chat = Chat(self.screen, dialogue, num, name)
+        self.chat.drawchat()
 
     def update(self):
     #캐릭터 위치 업데이트
@@ -241,6 +234,67 @@ class Player(pg.sprite.Sprite):
         self.chk_walls('y')
         self.chk_potal()
         self.chkdialogue()
+
+class NPC(pg.sprite.Sprite):
+    def __init__(self, game, x, y):
+        self.groups = game.all_sprites, game.npcs
+        pg.sprite.Sprite.__init__(self, self.groups)
+        self.game = game
+        self.game_folder = os.path.dirname(__file__)
+        self.img_folder = os.path.join(self.game_folder, 'image')
+        self.image = pg.image.load(os.path.join(self.img_folder, NPC_IMG[0])).convert_alpha()
+        self.rect = self.image.get_rect()
+        self.pos = vec(x, y)
+        self.vel = vec(0, 0)
+        self.sleep = 0
+        self.direction=0
+
+    def chk_walls(self, dir):
+        #캐릭터를 움직이기 전에 벽이 있는지 확인
+        if dir == 'x':
+            hits = pg.sprite.spritecollide(self, self.game.walls, False)
+            if hits:
+                if self.vel.x > 0:
+                    self.pos.x = hits[0].rect.left - self.rect.width
+                if self.vel.x < 0:
+                    self.pos.x = hits[0].rect.right
+                self.vel.x = 0
+                self.rect.x = self.pos.x
+        if dir == 'y':
+            hits = pg.sprite.spritecollide(self, self.game.walls, False)
+            if hits:
+                if self.vel.y > 0:
+                    self.pos.y = hits[0].rect.top - self.rect.height
+                    self.direction = 2
+                if self.vel.y < 0:
+                    self.pos.y = hits[0].rect.bottom
+                    self.direction = 0
+                self.vel.y = 0
+                self.rect.y = self.pos.y
+
+    def chkmove(self):
+        self.vel = vec(0, 0)
+        if self.direction == 2:
+            self.vel.y = -NPC_SPEED
+        else :
+            self.vel.y = NPC_SPEED
+        if self.vel.x != 0 and self.vel.y != 0:
+                self.vel *= 0.7071
+
+    def npckill(self):
+        self.kill()
+
+    def update(self):
+        if self.sleep>50 :
+            self.chkmove()
+        else :
+            self.sleep +=1
+        self.pos += self.vel * self.game.dt
+        self.rect.x = self.pos.x
+        self.chk_walls('x')
+        self.rect.y = self.pos.y
+        self.chk_walls('y')
+        self.image = pg.image.load(os.path.join(self.img_folder, NPC_IMG[self.direction])).convert_alpha()
 
 class Wall(pg.sprite.Sprite):
     def __init__(self, game, x, y, w, h):
