@@ -32,6 +32,7 @@ class Player(pg.sprite.Sprite):
         self.beformove = 0
         self.move =0
         self.stageChk = {
+            'quiz' : 0,
             'cloth' : 0,
             'clothPortal' : 0,
             'muscle' : 0,
@@ -145,9 +146,11 @@ class Player(pg.sprite.Sprite):
             for sprite in hits:
                 if sprite.name == 'quiz':
                     self.chating = True
-                    self.chatmake(sprite.dialoguelist, 0)
-                    self.quiz = Quiz(self.screen, self.game, sprite.properties['answer'])
-                    self.quiz.startQuiz()
+                    self.chatmake(sprite.dialoguelist, self.stageChk[sprite.name])
+                    if self.stageChk[sprite.name] == 0:
+                        self.quiz = Quiz(self.screen, self.game, sprite.properties['answer'])
+                        self.quiz.startQuiz()
+                    self.stageChk[sprite.name] = 1
                 if sprite.name == 'cloth' :
                     print(sprite.dialoguelist[self.stageChk[sprite.name]])
                     self.chating = True

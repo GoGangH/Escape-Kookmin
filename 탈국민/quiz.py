@@ -87,9 +87,9 @@ class Quiz:
             self.drawText()
             self.get_answer()
             if self.isCorrect():
-                self.chat = Chat(self.screen, [["정답!"]], 0)
+                self.chat = Chat(self.screen, [["어디선가 철컥하는 소리가 들렸다"]], 0)
                 self.chat.drawchat()
             else:
-                self.chat = Chat(self.screen, [["오답!"]], 0)
+                self.chat = Chat(self.screen, [["종이에서 비웃는 소리가 들린다..? 뭐야이거"]], 0)
                 self.chat.drawchat()
             self.quizplay = False
