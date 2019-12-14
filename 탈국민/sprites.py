@@ -242,6 +242,7 @@ class NPC(pg.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.pos = vec(x, y)
         self.vel = vec(0, 0)
+        self.sleep = 0
         self.direction=0
 
     def chk_walls(self, dir):
@@ -277,7 +278,10 @@ class NPC(pg.sprite.Sprite):
                 self.vel *= 0.7071
 
     def update(self):
-        self.chkmove()
+        if self.sleep>50 :
+            self.chkmove()
+        else :
+            self.sleep +=1
         self.pos += self.vel * self.game.dt
         self.rect.x = self.pos.x
         self.chk_walls('x')
