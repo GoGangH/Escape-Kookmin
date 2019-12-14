@@ -143,25 +143,18 @@ class Player(pg.sprite.Sprite):
             set_sfx(SOUNDLIST[1])
             for sprite in hits:
                 if sprite.name == 'cloth' :
+                    print(sprite.dialoguelist[self.stageChk[sprite.name]])
                     self.chating = True
-                    self.chat = Chat(self.screen, sprite.dialoguelist, self.stageChk['cloth'])
-                    self.chat.drawchat()
+                    self.chatmake(sprite.dialoguelist, self.stageChk[sprite.name])
                     self.stageChk[sprite.name] = 1
-                    self.image = pg.image.load(os.path.join(self.img_folder, PLAYERCHANGE_IMG)).convert_alpha()
                 if sprite.name == 'strong' :
                     self.chating = True
-                    self.chat = Chat(self.screen, sprite.dialoguelist, 0)
-                    self.chat.drawchat()
+                    self.chatmake(sprite.dialoguelist, 0)
                     self.stageChk['muscle'] = 1
-                else :
-                    self.chating = True
-                    self.chat = Chat(self.screen, sprite.dialoguelist, 0)
-                    self.chat.drawchat()
         else:
             chatting = [['멍청하게 시간을 날리고 있다.'],['걷는건 space가 아니라 w키다'],['bug인가?'],['그만해 이제 대사없어']]
             self.chating = True
-            self.chat = Chat(self.screen, chatting, self.stupidDegree)
-            self.chat.drawchat()
+            self.chatmake(chatting, self.stupidDegree)
             self.stupidDegree+=1
             self.stupidDegree%=len(chatting)
 
@@ -174,8 +167,7 @@ class Player(pg.sprite.Sprite):
                     if self.stageChk['cloth'] == 0:
                         self.pos = self.Beforpos
                         self.pos.y-=20
-                        self.chat = Chat(self.screen, sprite.dialoguelist, self.stageChk['clothPortal'])
-                        self.chat.drawchat()
+                        self.chatmake(sprite.dialoguelist, self.stageChk['clothPortal'])
                         self.chating = True
                         time.sleep(0.2)
                         if self.stageChk['clothPortal']==0:
@@ -187,14 +179,12 @@ class Player(pg.sprite.Sprite):
                     if self.stageChk['muscle'] == 0:
                         self.pos = self.Beforpos
                         self.pos.x+=20
-                        self.chat = Chat(self.screen, sprite.dialoguelist, 0)
-                        self.chat.drawchat()
+                        self.chatmake(sprite.dialoguelist, 0)
                         self.chating = True
                         time.sleep(0.2)
                     elif self.stageChk['muscle'] == 1:
                         set_sfx(SOUNDLIST[4])
-                        self.chat = Chat(self.screen, sprite.dialoguelist, 1)
-                        self.chat.drawchat()
+                        self.chatmake(sprite.dialoguelist, 1)
                         self.chating = True
                         time.sleep(1)
                         self.Mapstage=PORTALMAP[sprite.name]
@@ -214,11 +204,14 @@ class Player(pg.sprite.Sprite):
         if hits:
             for sprite in hits:
                 if self.stageDialogue[sprite.name] == 0:
-                    self.chat = Chat(self.screen, sprite.dialoguelist, self.stageChk['clothPortal'], '쿠민')
-                    self.chat.drawchat()
                     self.chating = True
+                    self.chatmake(sprite.dialoguelist, self.stageChk['clothPortal'],'쿠민')
                     time.sleep(0.2)
                     self.stageDialogue[sprite.name]=1
+    
+    def chatmake(self, dialogue, num, name=''):
+        self.chat = Chat(self.screen, dialogue, num, name)
+        self.chat.drawchat()
 
     def update(self):
     #캐릭터 위치 업데이트
@@ -276,6 +269,9 @@ class NPC(pg.sprite.Sprite):
             self.vel.y = NPC_SPEED
         if self.vel.x != 0 and self.vel.y != 0:
                 self.vel *= 0.7071
+
+    def npckill(self):
+        self.kill()
 
     def update(self):
         if self.sleep>50 :

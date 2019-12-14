@@ -80,6 +80,8 @@ class Game:
             self.events()
             if self.mapStage!=self.player.Mapstage:
                 self.mapStage = self.player.Mapstage
+                for sprite in self.npcs :
+                    sprite.npckill()
                 self.load_data()
                 self.new()
                 self.mapname = STAGENAME[self.mapStage]
@@ -94,8 +96,10 @@ class Game:
         self.camera.update(self.player)
         hits = pg.sprite.spritecollide(self.player, self.npcs, False)
         direction_list = [vec(0,-NPC_KNOCKBACK),vec(NPC_KNOCKBACK,0),vec(0, NPC_KNOCKBACK),vec(-NPC_KNOCKBACK,0)]
+        chatting = [['뭐해 안비켜?']]
         if hits:
             self.player.pos += direction_list[self.player.direction]
+            self.player.chatmake(chatting, 0, '???')
 
     def draw(self):
         #스크린 draw
