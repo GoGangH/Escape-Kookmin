@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="40" height="40" tilewidth="48" tileheight="48" infinite="0" nextlayerid="4" nextobjectid="4">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="40" height="40" tilewidth="48" tileheight="48" infinite="0" nextlayerid="4" nextobjectid="10">
  <tileset firstgid="1" name="48_city" tilewidth="48" tileheight="48" tilecount="1344" columns="32">
   <image source="../../../SW2-ADProject/maps/img/48_city.png" width="1536" height="2016"/>
  </tileset>
@@ -92,18 +92,15 @@
 </data>
  </layer>
  <objectgroup id="3" name="Object Layer 1">
-  <object id="1" name="item" type="tree" x="864" y="672" width="192" height="240">
+  <object id="3" name="player" type="start" x="971.128" y="825.324" width="48" height="48"/>
+  <object id="4" name="item" type="quiz" x="864" y="672" width="192" height="288">
    <properties>
-    <property name="choice length" type="int" value="3"/>
-    <property name="choice0" value="나무다"/>
-    <property name="choice1" value="나무"/>
-    <property name="choice2" value="다"/>
+    <property name="answer" value="double-long"/>
     <property name="dialogue length0" type="int" value="1"/>
-    <property name="dialogue length1" type="int" value="0"/>
-    <property name="dialogue00" value="이 중에서 뭘 고를까?"/>
-    <property name="dialogue10" value="%를 골랐다."/>
+    <property name="dialogue length1" type="int" value="1"/>
+    <property name="dialogue00" value="이게 뭐지?"/>
+    <property name="dialogue10" value="한번 푼 문제는 시시해서 못푼다."/>
    </properties>
   </object>
-  <object id="3" name="player" type="start" x="971.128" y="825.324" width="48" height="48"/>
  </objectgroup>
 </map>

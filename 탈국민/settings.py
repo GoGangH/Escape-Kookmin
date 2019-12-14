@@ -8,6 +8,7 @@ GAME_DIR = os.path.dirname(__file__)
 CHAT_DIR = os.path.join(GAME_DIR, 'chat')
 PROLOGUEIMAGE_DIR = os.path.join(GAME_DIR, 'image\\prologue')
 STARTIMAGE_DIR = os.path.join(GAME_DIR, 'image\\startscreen')
+QUIZ_DIR = os.path.join(GAME_DIR, 'image\\quiz')
 
 # define some colors (R, G, B)
 WHITE = (255, 255, 255)
@@ -31,7 +32,7 @@ GRIDHEIGHT = HEIGHT / TILESIZE
 
 #map setting
 STAGELEVEL = 0
-STAGETMX = ['showerRoom.tmx', 'fitness.tmx', 'secondfloor.tmx', '4thfloor.tmx']
+STAGETMX = ['choicetest.tmx', 'showerRoom.tmx', 'fitness.tmx', 'secondfloor.tmx', '4thfloor.tmx']
 STAGENAME = ['shower', 'fitness', 'secondfloor', '4thfloor']
 PORTALMAP = {
     'fitness' : 1,
@@ -69,3 +70,10 @@ SFX = os.listdir(os.path.join(GAME_DIR, 'sfx'))
 
 #FONTS
 MAINFONT = 'font\\YoonMingukR.ttf'
+CODEFONT = 'font\\D2Coding.ttc'
+
+#Quiz setting
+ENTER_IMG = 'quiz_enter.png'
+SYMBOLS = [".", ",", "-", "_", "(", ")",
+        "{", "}", "[", "]", "\\", "/",
+        "+", " ", "!", ":", ";"]
