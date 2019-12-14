@@ -3,7 +3,11 @@
 '''
 import os
 
+#DIRS
 GAME_DIR = os.path.dirname(__file__)
+CHAT_DIR = os.path.join(GAME_DIR, 'chat')
+PROLOGUEIMAGE_DIR = os.path.join(GAME_DIR, 'image\\prologue')
+STARTIMAGE_DIR = os.path.join(GAME_DIR, 'image\\startscreen')
 
 # define some colors (R, G, B)
 WHITE = (255, 255, 255)
@@ -35,13 +39,9 @@ PORTALMAP = {
     'secondfloor' : 2,
 }
 
-#tutorial setting
-STARTIMAGE_DIR = os.path.join(GAME_DIR, 'image\\startscreen')
+#start, prologue
 STARTIMAGE = os.listdir(STARTIMAGE_DIR)
-
-PROLOGUEIMAGE_DIR = os.path.join(GAME_DIR, 'image\\prologue')
 PROLOGUEIMAGE = os.listdir(PROLOGUEIMAGE_DIR)
-PAGEBLACK = 'black2.png'
 
 #player settings
 PLAYER_SPEED = 180
@@ -59,11 +59,13 @@ LIGHTMASK = 'light.png'
 LIGHT_RADIUS = (300, 300)
 
 #chat settings
-CHAT_WIDTH = WIDTH/2
-CHAT_HEIGHT = 20
-CHAT_IMG = 'chat.png'
+CHAT_IMG = 'chat_main.png'
+CHATTER_IMG = 'chat_name.png'
 
 #sound setting
 SOUNDLIST = ['backgrund.mp3','19.ogg','14.ogg', 'prologue.mp3', 'break.wav']
 BGM = os.listdir(os.path.join(GAME_DIR, 'bgm'))
 SFX = os.listdir(os.path.join(GAME_DIR, 'sfx'))
+
+#FONTS
+MAINFONT = 'font\\YoonMingukR.ttf'
