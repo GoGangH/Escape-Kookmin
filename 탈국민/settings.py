@@ -47,7 +47,8 @@ PAGEBLACK = 'black2.png'
 PLAYER_SPEED = 180
 PLAYER_IMG = [
     ['koomin00.png','koomin01.png','koomin00.png','koomin02.png'],
-    ['koomin10.png','koomin11.png','koomin10.png','koomin12.png']
+    ['koomin10.png','koomin11.png','koomin10.png','koomin12.png'],
+    ['koomin20.png','koomin21.png','koomin20.png','koomin22.png']
 ]
 PLAYERCHANGE_IMG = 'player2.png'
 

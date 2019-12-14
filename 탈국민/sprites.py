@@ -59,6 +59,10 @@ class Player(pg.sprite.Sprite):
             elif self.keys[pg.K_RIGHT] or self.keys[pg.K_d]:
                 self.vel.x = PLAYER_SPEED
             elif self.keys[pg.K_UP] or self.keys[pg.K_w]:
+                if self.direction != 2 :
+                    self.posdirection=self.pos.y
+                    self.direction=2
+                self.chkdirection()
                 self.vel.y = -PLAYER_SPEED
             elif self.keys[pg.K_DOWN] or self.keys[pg.K_s]:
                 if self.direction != 0 :
@@ -91,7 +95,7 @@ class Player(pg.sprite.Sprite):
         if self.direction == 1:
             num = int((abs(self.posdirection-self.pos.x)//25)%4)
             self.image = pg.image.load(os.path.join(self.img_folder, PLAYER_IMG[self.direction][num])).convert_alpha()
-        if self.direction == 0:
+        if self.direction == 0 or self.direction == 2:
             num = int((abs(self.posdirection-self.pos.y)//25)%4)
             self.image = pg.image.load(os.path.join(self.img_folder, PLAYER_IMG[self.direction][num])).convert_alpha()
         if self.beformove == num and num!=0:
