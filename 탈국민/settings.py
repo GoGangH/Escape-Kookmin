@@ -53,6 +53,11 @@ PLAYER_IMG = [
 ]
 PLAYERCHANGE_IMG = 'player2.png'
 
+# Npc settings
+NPC_IMG = ['xycar00.png','','xycar20.png']
+NPC_SPEED = 150
+NPC_KNOCKBACK = 20
+
 #Light Shadowing
 SHADOW_COLOR = (20, 20, 20)
 LIGHTMASK = 'light.png'

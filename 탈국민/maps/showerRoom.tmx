@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="40" height="35" tilewidth="48" tileheight="48" infinite="0" nextlayerid="6" nextobjectid="54">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="40" height="35" tilewidth="48" tileheight="48" infinite="0" nextlayerid="6" nextobjectid="55">
  <tileset firstgid="1" name="48_city" tilewidth="48" tileheight="48" tilecount="1344" columns="32">
   <image source="img/48_city.png" trans="ff00ff" width="1536" height="2016"/>
  </tileset>
@@ -214,5 +214,6 @@
     <property name="dialogue02" value="얼른 나가야겠다!"/>
    </properties>
   </object>
+  <object id="54" name="xycar" x="1152" y="816" width="48" height="48"/>
  </objectgroup>
 </map>

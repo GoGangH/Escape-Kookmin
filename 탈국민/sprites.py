@@ -231,6 +231,60 @@ class Player(pg.sprite.Sprite):
         self.chk_potal()
         self.chkdialogue()
 
+class NPC(pg.sprite.Sprite):
+    def __init__(self, game, x, y):
+        self.groups = game.all_sprites, game.npcs
+        pg.sprite.Sprite.__init__(self, self.groups)
+        self.game = game
+        self.game_folder = os.path.dirname(__file__)
+        self.img_folder = os.path.join(self.game_folder, 'image')
+        self.image = pg.image.load(os.path.join(self.img_folder, NPC_IMG[0])).convert_alpha()
+        self.rect = self.image.get_rect()
+        self.pos = vec(x, y)
+        self.vel = vec(0, 0)
+        self.direction=0
+
+    def chk_walls(self, dir):
+        #캐릭터를 움직이기 전에 벽이 있는지 확인
+        if dir == 'x':
+            hits = pg.sprite.spritecollide(self, self.game.walls, False)
+            if hits:
+                if self.vel.x > 0:
+                    self.pos.x = hits[0].rect.left - self.rect.width
+                if self.vel.x < 0:
+                    self.pos.x = hits[0].rect.right
+                self.vel.x = 0
+                self.rect.x = self.pos.x
+        if dir == 'y':
+            hits = pg.sprite.spritecollide(self, self.game.walls, False)
+            if hits:
+                if self.vel.y > 0:
+                    self.pos.y = hits[0].rect.top - self.rect.height
+                    self.direction = 2
+                if self.vel.y < 0:
+                    self.pos.y = hits[0].rect.bottom
+                    self.direction = 0
+                self.vel.y = 0
+                self.rect.y = self.pos.y
+
+    def chkmove(self):
+        self.vel = vec(0, 0)
+        if self.direction == 2:
+            self.vel.y = -NPC_SPEED
+        else :
+            self.vel.y = NPC_SPEED
+        if self.vel.x != 0 and self.vel.y != 0:
+                self.vel *= 0.7071
+
+    def update(self):
+        self.chkmove()
+        self.pos += self.vel * self.game.dt
+        self.rect.x = self.pos.x
+        self.chk_walls('x')
+        self.rect.y = self.pos.y
+        self.chk_walls('y')
+        self.image = pg.image.load(os.path.join(self.img_folder, NPC_IMG[self.direction])).convert_alpha()
+
 class Wall(pg.sprite.Sprite):
     def __init__(self, game, x, y, w, h):
         self.groups = game.walls
