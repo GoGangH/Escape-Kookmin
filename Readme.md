@@ -11,6 +11,7 @@
 
  ```
     pip install pygame
+    pip install pytmx
  ```
 
 ## USAGE (사용방법)
