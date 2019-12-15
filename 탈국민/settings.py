@@ -76,9 +76,9 @@ NPC_SPEED = 150
 NPC_KNOCKBACK = 20
 
 #Light Shadowing
-SHADOW_COLOR = (20, 20, 20)
+SHADOW_COLOR = (30,30,30)
 LIGHTMASK = 'light.png'
-LIGHT_RADIUS = (300, 300)
+LIGHT_RADIUS = (450, 450)
 
 #chat settings
 CHAT_IMG = 'chat_main.png'
