@@ -243,7 +243,7 @@
  <objectgroup id="5" name="Object Layer 1">
   <object id="3" name="player" type="shower" x="1368" y="338" width="48" height="48"/>
   <object id="5" name="wall" x="720" y="144" width="864" height="142"/>
-  <object id="6" name="wall" x="624" y="144" width="144" height="812"/>
+  <object id="6" name="wall" x="624" y="144" width="144" height="830"/>
   <object id="7" name="wall" x="192" y="768" width="528" height="164"/>
   <object id="8" name="wall" x="192" y="960" width="48" height="48"/>
   <object id="9" name="wall" x="192" y="1104" width="48" height="192"/>
@@ -263,7 +263,7 @@
     <property name="dialogue02" value="이 정도면 나갈 수 있을 것 같은데?"/>
    </properties>
   </object>
-  <object id="36" name="portal" type="secondfloor" x="192" y="1008" width="48" height="96">
+  <object id="36" name="portal" type="secondfloor" x="192" y="1021" width="48" height="70">
    <properties>
     <property name="dialogue length0" type="int" value="3"/>
     <property name="dialogue length1" type="int" value="1"/>
@@ -275,7 +275,7 @@
   </object>
   <object id="37" name="wall" x="768" y="288" width="576" height="22"/>
   <object id="38" name="wall" x="1440" y="288" width="96" height="34"/>
-  <object id="39" name="portal" type="shower" x="1344" y="288" width="96" height="48">
+  <object id="39" name="portal" type="shower" x="1355.5" y="288" width="71" height="48">
    <properties>
     <property name="dialogue length0" type="int" value="0"/>
     <property name="dialogue length1" type="int" value="0"/>
@@ -326,7 +326,7 @@
     <property name="dialogue01" value="이상하다...."/>
    </properties>
   </object>
-  <object id="55" name="item" type="ball" x="775" y="354" width="179" height="30">
+  <object id="55" name="item" type="ball" x="776" y="347" width="179" height="30">
    <properties>
     <property name="dialogue length0" type="int" value="2"/>
     <property name="dialogue length1" type="int" value="0"/>

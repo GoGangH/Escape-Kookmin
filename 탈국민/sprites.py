@@ -199,7 +199,7 @@ class Player(pg.sprite.Sprite):
                         if self.stageChk['clothPortal']==0:
                             self.stageChk['clothPortal']=1
                     else:
-                        set_sfx(SOUNDEFFECT_LIST[5])
+                        set_sfx(SOUNDEFFECT_LIST[1])
                         self.Mapstage=PORTALMAP[sprite.name]
                 elif sprite.name == 'secondfloor' :
                     if self.stageChk['muscle'] == 0:
@@ -219,6 +219,12 @@ class Player(pg.sprite.Sprite):
                     else :
                         set_sfx(SOUNDEFFECT_LIST[5])
                         self.Mapstage=PORTALMAP[sprite.name]
+                elif sprite.name == 'shower':
+                    set_sfx(SOUNDEFFECT_LIST[1])
+                    self.Mapstage=PORTALMAP[sprite.name]
+                elif sprite.name == '4thfloor':
+                    set_sfx(SOUNDEFFECT_LIST[9])
+                    self.Mapstage=PORTALMAP[sprite.name]
                 else:
                     set_sfx(SOUNDEFFECT_LIST[5])
                     self.Mapstage=PORTALMAP[sprite.name]
@@ -239,10 +245,11 @@ class Player(pg.sprite.Sprite):
     def chknpc(self):
         hits = pg.sprite.spritecollide(self, self.game.npcs, False)
         direction_list = [vec(0,-NPC_KNOCKBACK),vec(NPC_KNOCKBACK,0),vec(0, NPC_KNOCKBACK),vec(-NPC_KNOCKBACK,0)]
-        chatting = [['뭐해 안비켜?']]
+        chatting = [['뭐야 안비켜?']]
         if hits:
             for sprite in hits:
                 if sprite.name == 'xycar':
+                    set_sfx(SOUNDEFFECT_LIST[6])
                     self.pos += direction_list[self.direction]
                     self.chating = True
                     self.chatmake(chatting, 0, '???')
@@ -278,6 +285,7 @@ class NPC(pg.sprite.Sprite):
         self.sleep = 0
         self.chk = 0
         self.direction=0
+        self.pause = False
 
     def chk_walls(self, dir):
         #캐릭터를 움직이기 전에 벽이 있는지 확인
@@ -314,8 +322,11 @@ class NPC(pg.sprite.Sprite):
     def npckill(self):
         self.kill()
 
+    def npcpause(self):
+        self.pause = not self.pause
+
     def update(self):
-        if self.sleep>50 :
+        if self.sleep>50 and self.pause == False:
             self.chkmove()
         else :
             self.sleep +=1

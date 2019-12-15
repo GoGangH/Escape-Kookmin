@@ -90,11 +90,12 @@ class Quiz:
             self.drawText()
             self.get_answer()
             if self.isCorrect():
+                set_sfx(SOUNDEFFECT_LIST[8])
                 self.chat = Chat(self.screen, self.dialogue, 0)
                 self.chat.drawchat()
                 self.solve=True
             else:
-                set_sfx('fun.mp3')
+                set_sfx(SOUNDEFFECT_LIST[3])
                 self.chat = Chat(self.screen, self.dialogue, 1)
                 self.chat.drawchat()
             self.quizplay = False
