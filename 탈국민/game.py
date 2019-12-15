@@ -141,20 +141,41 @@ class Game:
 
     def prologue(self):
         #prologue screen
-        set_music(SOUNDLIST[3])
-        start = False
+
+        #SCENE1
         pImage = []
-        for i in PROLOGUEIMAGE:
-            pImage.append(pg.image.load(path.join(PROLOGUEIMAGE_DIR, i)))
+        fps = 1
+        prologue1_dir = os.path.join(PROLOGUEIMAGE_DIR, "scene1")
+        prologueimage = os.listdir(prologue1_dir)
+        for i in prologueimage:
+            pImage.append(pg.image.load(path.join(prologue1_dir, i)))
         
-        for img in pImage :
-            self.screen.blit(img ,self.rect)
+        for i in range(len(pImage)) :
+            self.screen.blit(pImage[i] ,self.rect)
             pg.display.update()
-            time.sleep(0.3)
-            # 코드는 실행되고 있으나 python이 응답없음으로 blit가 멈춤, 기다리면 함수는 종료됨.
+
+            if i == 1:
+                set_sfx('thing.ogg')
+            if i == 2:
+                fps = 0.2
+            elif i == 9:
+                fps = 1
+            elif i == 10:
+                #휘파람
+                pass
+            elif i == 12:
+                fps = 0.3
+            elif i == 15:
+                fps = 1
+            elif i == 16:
+                fps = 0.3
+                        
+            time.sleep(fps)
         
-        time.sleep(0.4)
-        pg.mixer.music.stop()
+        #SCENE2
+        pImage = []
+
+
 
     def ending(self):
         #game ending
