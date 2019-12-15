@@ -216,7 +216,7 @@
   <object id="24" name="wall" x="2688" y="1104" width="576" height="288"/>
   <object id="25" name="wall" x="2304" y="672" width="48" height="212"/>
   <object id="26" name="wall" x="2448" y="720" width="48" height="156"/>
-  <object id="28" name="portal" type="4thfloor" x="2352" y="706" width="96" height="96">
+  <object id="28" name="portal" type="4thfloor" x="2352" y="711" width="96" height="96">
    <properties>
     <property name="dialogue length0" type="int" value="0"/>
     <property name="dialogue length1" type="int" value="0"/>
@@ -228,7 +228,7 @@
     <property name="dialogue length1" type="int" value="0"/>
    </properties>
   </object>
-  <object id="30" name="player" type="4thfloor" x="2377" y="808" width="48" height="48"/>
+  <object id="30" name="player" type="4thfloor" x="2377" y="811.667" width="48" height="48"/>
   <object id="31" name="wall" x="798.667" y="788" width="56" height="54.6667"/>
  </objectgroup>
 </map>

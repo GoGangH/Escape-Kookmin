@@ -38,6 +38,7 @@ PORTALMAP = {
     'fitness' : 1,
     'shower' : 0,
     'secondfloor' : 2,
+    '4thfloor' : 3
 }
 
 #start, prologue
