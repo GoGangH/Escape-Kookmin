@@ -143,6 +143,7 @@ class Game:
         #prologue screen
 
         #SCENE1
+        set_music(SOUNDLIST[3])
         pImage = []
         fps = 1
         prologue1_dir = os.path.join(PROLOGUEIMAGE_DIR, "scene1")
