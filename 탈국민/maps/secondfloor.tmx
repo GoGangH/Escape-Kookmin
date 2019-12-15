@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="70" height="30" tilewidth="48" tileheight="48" infinite="0" nextlayerid="11" nextobjectid="32">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="70" height="30" tilewidth="48" tileheight="48" infinite="0" nextlayerid="11" nextobjectid="40">
  <tileset firstgid="1" name="GRAY" tilewidth="48" tileheight="48" tilecount="1" columns="1">
   <image source="img/GRAY.png" width="48" height="48"/>
  </tileset>
@@ -29,6 +29,12 @@
  </tileset>
  <tileset firstgid="2811" name="BLACK" tilewidth="48" tileheight="48" tilecount="1" columns="1">
   <image source="img/BLACK.png" width="48" height="48"/>
+ </tileset>
+ <tileset firstgid="2812" name="Barrigate1" tilewidth="48" tileheight="48" tilecount="3" columns="3">
+  <image source="img/Barrigate1.png" width="144" height="48"/>
+ </tileset>
+ <tileset firstgid="2815" name="Barrigate2" tilewidth="48" tileheight="48" tilecount="3" columns="1">
+  <image source="img/Barrigate2.png" width="48" height="144"/>
  </tileset>
  <layer id="1" name="back" width="70" height="30">
   <data encoding="csv">
@@ -187,16 +193,16 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2510,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2522,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2815,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2816,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2816,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2817,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2812,2813,2813,2814,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2812,2813,2813,2814,0,0,0,0,0,0,0,2812,2813,2813,2814,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
@@ -230,5 +236,37 @@
   </object>
   <object id="30" name="player" type="4thfloor" x="2377" y="811.667" width="48" height="48"/>
   <object id="31" name="wall" x="798.667" y="788" width="56" height="54.6667"/>
+  <object id="32" name="item" type="lockdoor" x="624" y="864" width="48" height="48">
+   <properties>
+    <property name="dialogue length0" type="int" value="1"/>
+    <property name="dialogue length1" type="int" value="0"/>
+    <property name="dialogue00" value="문이 잠겨있다."/>
+   </properties>
+  </object>
+  <object id="33" name="item" type="lockdoor" x="432" y="864" width="48" height="48">
+   <properties>
+    <property name="dialogue length0" type="int" value="1"/>
+    <property name="dialogue length1" type="int" value="0"/>
+    <property name="dialogue00" value="문이 잠겨있다."/>
+   </properties>
+  </object>
+  <object id="34" name="item" type="lockdoor" x="192" y="864" width="48" height="48">
+   <properties>
+    <property name="dialogue length0" type="int" value="1"/>
+    <property name="dialogue length1" type="int" value="0"/>
+    <property name="dialogue00" value="문이 잠겨있다."/>
+   </properties>
+  </object>
+  <object id="35" name="item" type="lockdoor" x="1256" y="864" width="77.3333" height="48">
+   <properties>
+    <property name="dialogue length0" type="int" value="1"/>
+    <property name="dialogue length1" type="int" value="0"/>
+    <property name="dialogue00" value="문이 잠겨있다."/>
+   </properties>
+  </object>
+  <object id="36" name="wall" x="912" y="1352" width="192" height="40"/>
+  <object id="37" name="wall" x="1968" y="1352" width="192" height="40"/>
+  <object id="38" name="wall" x="2498" y="1352" width="192" height="40"/>
+  <object id="39" name="wall" x="3230" y="912" width="34" height="192"/>
  </objectgroup>
 </map>
