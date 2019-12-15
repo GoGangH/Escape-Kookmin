@@ -41,6 +41,11 @@ class Player(pg.sprite.Sprite):
         }
         self.stageDialogue = {
             'start' : 0,
+            'prologue' : 0,
+        }
+        self.dialogue = {
+            'start' : '쿠민',
+            'prologue' : ''
         }
 
     def set_pos(self, x, y):
@@ -246,7 +251,7 @@ class Player(pg.sprite.Sprite):
             for sprite in hits:
                 if self.stageDialogue[sprite.name] == 0:
                     self.chating = True
-                    self.chatmake(sprite.dialoguelist, self.stageChk['clothPortal'],'쿠민')
+                    self.chatmake(sprite.dialoguelist, self.stageChk['clothPortal'],self.dialogue[sprite.name])
                     time.sleep(0.2)
                     self.stageDialogue[sprite.name]=1
     

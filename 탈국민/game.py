@@ -180,7 +180,7 @@ class Game:
         #SCENE2
         pImage = []
 
-
+        self.screen.fill(BLACK)
 
     def ending(self):
         #game ending
