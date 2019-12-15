@@ -46,16 +46,16 @@
   <image source="img/glass-door.png" width="144" height="144"/>
  </tileset>
  <tileset firstgid="3361" name="48_pipo" tilewidth="48" tileheight="48" tilecount="1064" columns="8">
-  <image source="../../../SW2-ADProject/maps/img/48_pipo.png" width="384" height="6384"/>
+  <image source="img/48_pipo.png" width="384" height="6384"/>
  </tileset>
  <tileset firstgid="4425" name="glass" tilewidth="48" tileheight="48" tilecount="9" columns="3">
   <image source="img/glass.png" width="144" height="144"/>
  </tileset>
  <tileset firstgid="4434" name="48_city" tilewidth="48" tileheight="48" tilecount="1344" columns="32">
-  <image source="../../../SW2-ADProject/maps/img/48_city.png" width="1536" height="2016"/>
+  <image source="img/48_city.png" width="1536" height="2016"/>
  </tileset>
  <tileset firstgid="5778" name="GRAY" tilewidth="48" tileheight="48" tilecount="1" columns="1">
-  <image source="../../../SW2-ADProject/maps/img/GRAY.png" width="48" height="48"/>
+  <image source="img/GRAY.png" width="48" height="48"/>
  </tileset>
  <layer id="1" name="back" width="72" height="40" visible="0">
   <data encoding="csv">
