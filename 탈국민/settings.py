@@ -58,7 +58,13 @@ PLAYER_IMGB = [
     ['koominB20.png','koominB21.png','koominB20.png','koominB22.png'],
     ['koominB30.png','koominB31.png','koominB30.png','koominB32.png']
 ]
-PLAYER_IMGNAME = [PLAYER_IMG, PLAYER_IMGB]
+PLAYER_IMGA = [
+    ['koominA00.png','koominA01.png','koominA00.png','koominA02.png'],
+    ['koominA10.png','koominA11.png','koominA10.png','koominA12.png'],
+    ['koominA20.png','koominA21.png','koominA20.png','koominA22.png'],
+    ['koominA30.png','koominA31.png','koominA30.png','koominA32.png']
+]
+PLAYER_IMGNAME = [PLAYER_IMG, PLAYER_IMGA, PLAYER_IMGB]
 
 # Npc settings
 XYCAR_IMG = ['xycar00.png','','xycar20.png']

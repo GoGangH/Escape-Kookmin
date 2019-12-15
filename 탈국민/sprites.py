@@ -158,9 +158,17 @@ class Player(pg.sprite.Sprite):
                 elif sprite.name == 'cloth':
                     self.chating = True
                     self.chatmake(sprite.dialoguelist, self.stageChk[sprite.name])
-                    self.imgname = 1
-                    self.image = pg.image.load(os.path.join(self.img_folder, PLAYER_IMGNAME[self.imgname][0][0])).convert_alpha()
+                    if self.stageChk['cloth'] == 0:
+                        self.imgname = 1
+                        self.image = pg.image.load(os.path.join(self.img_folder, PLAYER_IMGNAME[self.imgname][self.direction][0])).convert_alpha()
                     self.stageChk[sprite.name] = 1
+                elif sprite.name == 'basin':
+                    self.chating = True
+                    self.chatmake(sprite.dialoguelist, self.stageChk['cloth'], '쿠민')
+                    if self.stageChk['cloth'] == 0:
+                        self.imgname = 2
+                        self.image = pg.image.load(os.path.join(self.img_folder, PLAYER_IMGNAME[self.imgname][self.direction][0])).convert_alpha()
+                    self.stageChk['cloth'] = 1
                 elif sprite.name == 'strong' :
                     self.chating = True
                     self.chatmake(sprite.dialoguelist, 0)
@@ -249,10 +257,12 @@ class Player(pg.sprite.Sprite):
         if hits:
             for sprite in hits:
                 if sprite.name == 'xycar':
+                    sprite.npcpause()
                     set_sfx(SOUNDEFFECT_LIST[6])
                     self.pos += direction_list[self.direction]
                     self.chating = True
                     self.chatmake(chatting, 0, '???')
+                    sprite.npcpause()
     
     def chatmake(self, dialogue, num, name=''):
         self.chat = Chat(self.screen, dialogue, num, name)
@@ -311,13 +321,14 @@ class NPC(pg.sprite.Sprite):
                 self.rect.y = self.pos.y
 
     def chkmove(self):
-        self.vel = vec(0, 0)
-        if self.direction == 2:
-            self.vel.y = -NPC_SPEED
-        else :
-            self.vel.y = NPC_SPEED
-        if self.vel.x != 0 and self.vel.y != 0:
-                self.vel *= 0.7071
+        if self.pause == False :
+            self.vel = vec(0, 0)
+            if self.direction == 2:
+                self.vel.y = -NPC_SPEED
+            else :
+                self.vel.y = NPC_SPEED
+            if self.vel.x != 0 and self.vel.y != 0:
+                    self.vel *= 0.7071
 
     def npckill(self):
         self.kill()
@@ -326,16 +337,17 @@ class NPC(pg.sprite.Sprite):
         self.pause = not self.pause
 
     def update(self):
-        if self.sleep>50 and self.pause == False:
+        if self.sleep>50:
             self.chkmove()
         else :
             self.sleep +=1
-        self.pos += self.vel * self.game.dt
-        self.rect.x = self.pos.x
-        self.chk_walls('x')
-        self.rect.y = self.pos.y
-        self.chk_walls('y')
-        self.image = pg.image.load(os.path.join(self.img_folder, NPC_IMGNAME[self.chk][self.direction])).convert_alpha()
+        if self.pause == False :
+            self.pos += self.vel * self.game.dt
+            self.rect.x = self.pos.x
+            self.chk_walls('x')
+            self.rect.y = self.pos.y
+            self.chk_walls('y')
+            self.image = pg.image.load(os.path.join(self.img_folder, NPC_IMGNAME[self.chk][self.direction])).convert_alpha()
 
 class Wall(pg.sprite.Sprite):
     def __init__(self, game, x, y, w, h):
