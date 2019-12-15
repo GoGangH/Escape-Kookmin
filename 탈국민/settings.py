@@ -32,7 +32,7 @@ GRIDHEIGHT = HEIGHT / TILESIZE
 
 #map setting
 STAGELEVEL = 0
-STAGETMX = ['choicetest.tmx','showerRoom.tmx', 'fitness.tmx', 'secondfloor.tmx', '4thfloor.tmx']
+STAGETMX = ['showerRoom.tmx', 'fitness.tmx', 'secondfloor.tmx', '4thfloor.tmx']
 STAGENAME = ['shower', 'fitness', 'secondfloor', '4thfloor']
 PORTALMAP = {
     'fitness' : 1,
@@ -78,7 +78,7 @@ CHATTER_IMG = 'chat_name.png'
 
 #sound setting
 SOUNDLIST = ['background.mp3','prologue.mp3', 'start.mp3']
-SOUNDEFFECT_LIST = ['item.ogg','showerdoor.ogg','break.wav','fun.ogg','doorlock.ogg','dooropen.ogg','carcrash.mp3','carstart.mp3','quizdoor.wav','stairs.MP3']
+SOUNDEFFECT_LIST = ['item.ogg','showerdoor.ogg','break.wav','fun.ogg','doorlock.ogg','dooropen.ogg','carcrash.ogg','carstart.ogg','quizdoor.ogg','stairs.ogg']
 BGM = os.listdir(os.path.join(GAME_DIR, 'bgm'))
 SFX = os.listdir(os.path.join(GAME_DIR, 'sfx'))
 
