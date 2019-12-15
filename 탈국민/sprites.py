@@ -36,6 +36,7 @@ class Player(pg.sprite.Sprite):
             'cloth' : 0,
             'clothPortal' : 0,
             'muscle' : 0,
+            'xycar' : 0
         }
         self.stageDialogue = {
             'start' : 0,
@@ -159,6 +160,15 @@ class Player(pg.sprite.Sprite):
                     self.chating = True
                     self.chatmake(sprite.dialoguelist, 0)
                     self.stageChk['muscle'] = 1
+                elif sprite.name == 'xycar' :
+                    self.chating = True
+                    self.chatmake(sprite.dialoguelist, self.stageChk['xycar'])
+                    if self.stageChk['xycar'] == 0:
+                        for sprit in self.game.npcs:
+                            if sprite.name == 'xycar':
+                                self.game.npcs.chk=1
+                                break
+                    self.stageChk['xycar']=1
                 else :
                     self.chating = True
                     self.chatmake(sprite.dialoguelist, 0)
@@ -220,8 +230,18 @@ class Player(pg.sprite.Sprite):
                     time.sleep(0.2)
                     self.stageDialogue[sprite.name]=1
     
+    def chknpc(self):
+        hits = pg.sprite.spritecollide(self, self.game.npcs, False)
+        direction_list = [vec(0,-NPC_KNOCKBACK),vec(NPC_KNOCKBACK,0),vec(0, NPC_KNOCKBACK),vec(-NPC_KNOCKBACK,0)]
+        chatting = [['뭐해 안비켜?']]
+        if hits:
+            for sprite in hits:
+                if sprite.name == 'xycar':
+                    self.pos += direction_list[self.direction]
+                    self.chating = True
+                    self.chatmake(chatting, 0, '???')
+    
     def chatmake(self, dialogue, num, name=''):
-        self.chating = True
         self.chat = Chat(self.screen, dialogue, num, name)
         self.chat.drawchat()
 
@@ -233,21 +253,24 @@ class Player(pg.sprite.Sprite):
         self.chk_walls('x')
         self.rect.y = self.pos.y
         self.chk_walls('y')
+        self.chknpc()
         self.chk_potal()
         self.chkdialogue()
 
 class NPC(pg.sprite.Sprite):
-    def __init__(self, game, x, y):
+    def __init__(self, game, x, y, type):
         self.groups = game.all_sprites, game.npcs
         pg.sprite.Sprite.__init__(self, self.groups)
         self.game = game
+        self.name = type
         self.game_folder = os.path.dirname(__file__)
         self.img_folder = os.path.join(self.game_folder, 'image')
-        self.image = pg.image.load(os.path.join(self.img_folder, NPC_IMG[0])).convert_alpha()
+        self.image = pg.image.load(os.path.join(self.img_folder, NPC_IMGNAME[0][0])).convert_alpha()
         self.rect = self.image.get_rect()
         self.pos = vec(x, y)
         self.vel = vec(0, 0)
         self.sleep = 0
+        self.chk = 0
         self.direction=0
 
     def chk_walls(self, dir):
@@ -295,7 +318,7 @@ class NPC(pg.sprite.Sprite):
         self.chk_walls('x')
         self.rect.y = self.pos.y
         self.chk_walls('y')
-        self.image = pg.image.load(os.path.join(self.img_folder, NPC_IMG[self.direction])).convert_alpha()
+        self.image = pg.image.load(os.path.join(self.img_folder, NPC_IMGNAME[self.chk][self.direction])).convert_alpha()
 
 class Wall(pg.sprite.Sprite):
     def __init__(self, game, x, y, w, h):
@@ -339,6 +362,14 @@ class Item(pg.sprite.Sprite):
         dialogues.append(a)
         
         return dialogues
+    
+    def update(self):
+        if self.name == 'xycar':
+            for sprite in self.game.npcs:
+                if(sprite.name == 'xycar'):
+                    self.rect.x = sprite.rect.x-15
+                    self.rect.y = sprite.rect.y-15
+                    break
         
 class Portal(pg.sprite.Sprite):
     def __init__(self, game, type, x, y, w, h, properties):

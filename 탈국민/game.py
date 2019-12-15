@@ -56,8 +56,8 @@ class Game:
                     self.player.set_pos(tile_object.x, tile_object.y)
                     if tile_object.type == 'start' :
                         self.mapname = 'shower'
-            if tile_object.name == 'xycar':
-                NPC(self, tile_object.x, tile_object.y)
+            if tile_object.name == 'npc':
+                NPC(self, tile_object.x, tile_object.y, tile_object.type)
             if tile_object.name == 'wall':
                 Wall(self, tile_object.x, tile_object.y,
                          tile_object.width, tile_object.height)
@@ -93,13 +93,8 @@ class Game:
     def update(self):
         # 게임 카메라, sprites update  
         self.all_sprites.update()
+        self.items.update()
         self.camera.update(self.player)
-        hits = pg.sprite.spritecollide(self.player, self.npcs, False)
-        direction_list = [vec(0,-NPC_KNOCKBACK),vec(NPC_KNOCKBACK,0),vec(0, NPC_KNOCKBACK),vec(-NPC_KNOCKBACK,0)]
-        chatting = [['뭐해 안비켜?']]
-        if hits:
-            self.player.pos += direction_list[self.player.direction]
-            self.player.chatmake(chatting, 0, '???')
 
     def draw(self):
         #스크린 draw
@@ -128,7 +123,7 @@ class Game:
                     return
 
     def startscreen(self):
-        set_music(SOUNDLIST[3])
+        set_music(SOUNDLIST[5])
         Image = []
         for i in STARTIMAGE:
             Image.append(pg.image.load(path.join(STARTIMAGE_DIR, i)))

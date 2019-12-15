@@ -13,7 +13,6 @@ class Chat:
         self.chatterRect = self.chatterimg.get_rect()
         self.font = pg.font.Font(MAINFONT, 18)
         self.indexX = index
-        print(self.indexX)
         self.indexY = 0
         self.dialogue = dialogue
 

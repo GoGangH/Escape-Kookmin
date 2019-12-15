@@ -61,7 +61,9 @@ PLAYER_IMGB = [
 PLAYER_IMGNAME = [PLAYER_IMG, PLAYER_IMGB]
 
 # Npc settings
-NPC_IMG = ['xycar00.png','','xycar20.png']
+XYCAR_IMG = ['xycar00.png','','xycar20.png']
+XYCAR_IMGB = ['xycarB00.png','','xycarB20.png']
+NPC_IMGNAME = [XYCAR_IMGB, XYCAR_IMG]
 NPC_SPEED = 150
 NPC_KNOCKBACK = 20
 
@@ -75,7 +77,7 @@ CHAT_IMG = 'chat_main.png'
 CHATTER_IMG = 'chat_name.png'
 
 #sound setting
-SOUNDLIST = ['background.mp3','19.ogg','14.ogg', 'prologue.mp3', 'break.wav']
+SOUNDLIST = ['background.mp3','19.ogg','14.ogg', 'prologue.mp3', 'break.wav','start.mp3']
 BGM = os.listdir(os.path.join(GAME_DIR, 'bgm'))
 SFX = os.listdir(os.path.join(GAME_DIR, 'sfx'))
 
