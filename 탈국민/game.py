@@ -43,6 +43,7 @@ class Game:
     def new(self):
         # 게임의 sprite 그룹 정의 및 플레이어 위치 설정
         self.walls = pg.sprite.Group()
+        self.npcwalls = pg.sprite.Group()
         self.items = pg.sprite.Group()
         self.npcs = pg.sprite.Group()
         self.portals = pg.sprite.Group()
@@ -60,6 +61,9 @@ class Game:
                 NPC(self, tile_object.x, tile_object.y, tile_object.type)
             if tile_object.name == 'wall':
                 Wall(self, tile_object.x, tile_object.y,
+                         tile_object.width, tile_object.height)
+            if tile_object.name == 'npcwall':
+                npcWall(self, tile_object.x, tile_object.y,
                          tile_object.width, tile_object.height)
             if tile_object.name == 'item':
                 Item(self,tile_object.type, tile_object.x, tile_object.y,
