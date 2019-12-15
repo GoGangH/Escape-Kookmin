@@ -214,10 +214,9 @@
     <property name="dialogue02" value="얼른 나가야겠다!"/>
    </properties>
   </object>
-  <object id="54" name="npc" type="xycar" x="1152" y="816" width="48" height="48"/>
   <object id="55" name="dialogue" type="start" x="618.167" y="725.833" width="56.3333" height="31">
    <properties>
-    <property name="dialogue length0" type="int" value="2"/>
+    <property name="dialogue length0" type="int" value="3"/>
     <property name="dialogue length1" type="int" value="0"/>
     <property name="dialogue00" value="뭐야 왜 불이 꺼졌지?"/>
     <property name="dialogue01" value="설마 학교문이 벌써 잠긴건가?"/>
@@ -231,14 +230,6 @@
     <property name="dialogue00" value="뭐야 왜 불이 꺼졌지?"/>
     <property name="dialogue01" value="설마 학교문이 벌써 잠긴건가?"/>
     <property name="dialogue02" value="얼른 나가야겠다!"/>
-   </properties>
-  </object>
-  <object id="57" name="item" type="xycar" x="1136" y="800" width="78" height="78">
-   <properties>
-    <property name="dialogue length0" type="int" value="1"/>
-    <property name="dialogue length1" type="int" value="1"/>
-    <property name="dialogue00" value="열쇠를 얻었다."/>
-    <property name="dialogue10" value="보기도 싫은 xycar이다."/>
    </properties>
   </object>
   <object id="59" name="wall" x="723" y="937" width="36.6667" height="40.6667"/>

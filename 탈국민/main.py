@@ -6,7 +6,7 @@ from game import *
 
 g = Game()
 g.startscreen()
-g.prologue()
+#g.prologue()
 while True:
     g.new()
     g.run()

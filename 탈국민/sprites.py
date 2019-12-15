@@ -368,7 +368,7 @@ class Wall(pg.sprite.Sprite):
 
 class npcWall(pg.sprite.Sprite):
     def __init__(self, game, x, y, w, h):
-        self.groups = game.walls
+        self.groups = game.npcwalls
         pg.sprite.Sprite.__init__(self, self.groups)
         self.game = game
         self.rect = pg.Rect(x, y, w, h)
