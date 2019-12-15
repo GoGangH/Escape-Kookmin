@@ -15,6 +15,7 @@ class Chat:
         self.indexX = index
         self.indexY = 0
         self.dialogue = dialogue
+        print(self.dialogue , self.indexX)
 
     def drawback(self):
         self.screen.blit(self.backgroundimg, self.chatRect)

@@ -123,7 +123,7 @@ class Game:
                     return
 
     def startscreen(self):
-        set_music(SOUNDLIST[5])
+        set_music(SOUNDLIST[2])
         Image = []
         for i in STARTIMAGE:
             Image.append(pg.image.load(path.join(STARTIMAGE_DIR, i)))
@@ -143,7 +143,7 @@ class Game:
         #prologue screen
 
         #SCENE1
-        set_music(SOUNDLIST[3])
+        set_music(SOUNDLIST[1])
         pImage = []
         fps = 1
         prologue1_dir = os.path.join(PROLOGUEIMAGE_DIR, "scene1")

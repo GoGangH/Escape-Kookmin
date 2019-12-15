@@ -144,15 +144,17 @@ class Player(pg.sprite.Sprite):
         # space bar 클릭시 item 유무 확인 및 상호작용
         hits = pg.sprite.spritecollide(self, self.game.items, False)
         if hits:
-            set_sfx(SOUNDLIST[1])
+            set_sfx(SOUNDEFFECT_LIST[0])
             for sprite in hits:
                 if sprite.name == 'quiz':
+                    chat = [['철컥하는 소리가 들린다. 어딘가 열린 것 같다.'],['비웃는 소리가 들린다.']]
                     self.chating = True
                     self.chatmake(sprite.dialoguelist, self.stageChk[sprite.name])
                     if self.stageChk[sprite.name] == 0:
-                        self.quiz = Quiz(self.screen, self.game, sprite.properties['answer'])
+                        self.quiz = Quiz(self.screen, self.game, sprite.properties['answer'],chat)
                         self.quiz.startQuiz()
-                    self.stageChk[sprite.name] = 1
+                    if self.quiz.solve:
+                        self.stageChk[sprite.name] = 1
                 elif sprite.name == 'cloth':
                     self.chating = True
                     self.chatmake(sprite.dialoguelist, self.stageChk[sprite.name])
@@ -197,27 +199,28 @@ class Player(pg.sprite.Sprite):
                         if self.stageChk['clothPortal']==0:
                             self.stageChk['clothPortal']=1
                     else:
-                        set_sfx(SOUNDLIST[2])
+                        set_sfx(SOUNDEFFECT_LIST[5])
                         self.Mapstage=PORTALMAP[sprite.name]
                 elif sprite.name == 'secondfloor' :
                     if self.stageChk['muscle'] == 0:
+                        set_sfx(SOUNDEFFECT_LIST[4])
                         self.pos = self.Beforpos
                         self.pos.x+=20
                         self.chatmake(sprite.dialoguelist, 0)
                         self.chating = True
                         time.sleep(0.2)
                     elif self.stageChk['muscle'] == 1:
-                        set_sfx(SOUNDLIST[4])
+                        set_sfx(SOUNDEFFECT_LIST[2])
                         self.chatmake(sprite.dialoguelist, 1)
                         self.chating = True
                         time.sleep(1)
                         self.Mapstage=PORTALMAP[sprite.name]
                         self.stageChk['muscle']=2
                     else :
-                        set_sfx(SOUNDLIST[2])
+                        set_sfx(SOUNDEFFECT_LIST[5])
                         self.Mapstage=PORTALMAP[sprite.name]
                 else:
-                    set_sfx(SOUNDLIST[2])
+                    set_sfx(SOUNDEFFECT_LIST[5])
                     self.Mapstage=PORTALMAP[sprite.name]
         else:
             self.Beforpos = self.pos

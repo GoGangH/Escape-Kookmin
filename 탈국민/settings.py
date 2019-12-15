@@ -77,7 +77,8 @@ CHAT_IMG = 'chat_main.png'
 CHATTER_IMG = 'chat_name.png'
 
 #sound setting
-SOUNDLIST = ['background.mp3','19.ogg','14.ogg', 'prologue.mp3', 'break.wav','start.mp3']
+SOUNDLIST = ['background.mp3','prologue.mp3', 'start.mp3']
+SOUNDEFFECT_LIST = ['19.ogg','14.ogg','break.wav','fun.mp3','doorlock.wav','dooropen.wav']
 BGM = os.listdir(os.path.join(GAME_DIR, 'bgm'))
 SFX = os.listdir(os.path.join(GAME_DIR, 'sfx'))
 

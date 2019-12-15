@@ -3,9 +3,10 @@ import os, sys
 from settings import *
 from sound import *
 from chat import *
+from sound import *
 
 class Quiz:
-    def __init__(self, screen, game, quizanswer, text = ''):
+    def __init__(self, screen, game, quizanswer, dialogue):
         self.screen = screen
         self.answer = quizanswer
         self.enter_img = pg.image.load(os.path.join(QUIZ_DIR, ENTER_IMG))
@@ -14,10 +15,12 @@ class Quiz:
         self.quiz_rect = self.enter_img.get_rect()
         self.font = pg.font.Font(CODEFONT, 18)
         self.scorefont = pg.font.Font(MAINFONT, 18)
-        self.text = self.font.render(text, True, BLACK)
+        self.text = self.font.render('', True, BLACK)
         self.current_string = ""
         self.quizplay = False
         self.chat = None
+        self.solve = False
+        self.dialogue = dialogue
     
     def drawEnter(self):
         self.screen.blit(self.enter_img, self.enter_rect)
@@ -58,7 +61,7 @@ class Quiz:
                         pg.display.update()
 
     def isCorrect(self):
-        self.current_string=self.current_string.strip()
+        self.current_string = self.current_string.strip()
         if self.answer == self.current_string:
             return True
         else:
@@ -87,9 +90,11 @@ class Quiz:
             self.drawText()
             self.get_answer()
             if self.isCorrect():
-                self.chat = Chat(self.screen, [["어디선가 철컥하는 소리가 들렸다"]], 0)
+                self.chat = Chat(self.screen, self.dialogue, 0)
                 self.chat.drawchat()
+                self.solve=True
             else:
-                self.chat = Chat(self.screen, [["종이에서 비웃는 소리가 들린다..? 뭐야이거"]], 0)
+                set_sfx('fun.mp3')
+                self.chat = Chat(self.screen, self.dialogue, 1)
                 self.chat.drawchat()
             self.quizplay = False
