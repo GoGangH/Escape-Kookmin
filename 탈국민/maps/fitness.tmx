@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="40" height="30" tilewidth="48" tileheight="48" infinite="0" nextlayerid="8" nextobjectid="57">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="40" height="30" tilewidth="48" tileheight="48" infinite="0" nextlayerid="8" nextobjectid="64">
  <tileset firstgid="1" name="GRAY" tilewidth="48" tileheight="48" tilecount="1" columns="1">
   <image source="img/GRAY.png" width="48" height="48"/>
  </tileset>
@@ -256,11 +256,10 @@
   <object id="25" name="wall" x="1474" y="720" width="14" height="48"/>
   <object id="33" name="item" type="strong" x="1471" y="575" width="69" height="53">
    <properties>
-    <property name="dialogue length0" value="3"/>
+    <property name="dialogue length0" value="2"/>
     <property name="dialogue length1" type="int" value="0"/>
     <property name="dialogue00" value="아령을 들었다."/>
     <property name="dialogue01" value="삼각근이 강화되었다."/>
-    <property name="dialogue02" value="이 정도면 나갈 수 있을 것 같은데?"/>
    </properties>
   </object>
   <object id="36" name="portal" type="secondfloor" x="192" y="1021" width="48" height="70">
@@ -268,7 +267,7 @@
     <property name="dialogue length0" type="int" value="3"/>
     <property name="dialogue length1" type="int" value="1"/>
     <property name="dialogue00" value="나무로 된 문이 잠겨있다."/>
-    <property name="dialogue01" value="굉장히 오래된 것 같다."/>
+    <property name="dialogue01" value="김종국은 부실 수 있을지도?..."/>
     <property name="dialogue02" value="나갈 방법을 찾아보자."/>
     <property name="dialogue10" value="강화된 근육으로 문을 부쉈다."/>
    </properties>
@@ -294,12 +293,16 @@
     <property name="dialogue01" value="이두가 강화되었다."/>
    </properties>
   </object>
-  <object id="51" name="item" type="trash" x="714.649" y="934" width="62.7014" height="66">
+  <object id="51" name="item" type="map" x="714.649" y="934" width="62.7014" height="66">
    <properties>
-    <property name="dialogue length0" value="2"/>
-    <property name="dialogue length1" type="int" value="0"/>
+    <property name="dialogue length0" value="4"/>
+    <property name="dialogue length1" type="int" value="2"/>
     <property name="dialogue00" value="더러운 쓰레기 통이다."/>
     <property name="dialogue01" value="프로틴 껍데기가 잔득 들어있다."/>
+    <property name="dialogue02" value="엇?"/>
+    <property name="dialogue03" value="누군가가 그린 지도를 획득했다."/>
+    <property name="dialogue10" value="더러운 쓰레기 통이다."/>
+    <property name="dialogue11" value="프로틴 껍데기가 잔득 들어있다."/>
    </properties>
   </object>
   <object id="52" name="item" type="weight" x="1443" y="342" width="39" height="34">
@@ -335,5 +338,43 @@
    </properties>
   </object>
   <object id="56" name="wall" x="768" y="288" width="193" height="64"/>
+  <object id="57" name="dialogue" type="teddystart" x="1344" y="336" width="21.5" height="80">
+   <properties>
+    <property name="dialogue length0" type="int" value="2"/>
+    <property name="dialogue length1" type="int" value="0"/>
+    <property name="dialogue00" value="내 곰인형을 자주스에 두고온것 같아!"/>
+    <property name="dialogue01" value="테디짱이 없으면 잘 수 없어!"/>
+   </properties>
+  </object>
+  <object id="59" name="dialogue" type="teddystart" x="1418.75" y="333.5" width="21.5" height="80">
+   <properties>
+    <property name="dialogue length0" type="int" value="2"/>
+    <property name="dialogue length1" type="int" value="0"/>
+    <property name="dialogue00" value="내 곰인형을 자주스에 두고온것 같아!"/>
+    <property name="dialogue01" value="테디짱이 없으면 잘 수 없어!"/>
+   </properties>
+  </object>
+  <object id="60" name="dialogue" type="teddystart" x="1365.75" y="399.167" width="51.5" height="25">
+   <properties>
+    <property name="dialogue length0" type="int" value="2"/>
+    <property name="dialogue length1" type="int" value="0"/>
+    <property name="dialogue00" value="내 곰인형을 자주스에 두고온것 같아!"/>
+    <property name="dialogue01" value="테디짱이 없으면 잘 수 없어!"/>
+   </properties>
+  </object>
+  <object id="61" name="item" type="bag" x="770.667" y="821.333" width="69.3333" height="34.6667">
+   <properties>
+    <property name="dialogue length0" type="int" value="1"/>
+    <property name="dialogue length1" type="int" value="0"/>
+    <property name="dialogue00" value="가방에 프로틴이 잔득 들어있다."/>
+   </properties>
+  </object>
+  <object id="62" name="item" type="wear" x="770.667" y="665.333" width="72" height="42.6667">
+   <properties>
+    <property name="dialogue length0" type="int" value="1"/>
+    <property name="dialogue length1" type="int" value="0"/>
+    <property name="dialogue00" value="이정도 입었으면 충분하다."/>
+   </properties>
+  </object>
  </objectgroup>
 </map>
