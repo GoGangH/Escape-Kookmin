@@ -100,11 +100,11 @@ class Player(pg.sprite.Sprite):
                 time.sleep(0.5)
             elif self.keys[pg.K_m]:
                 if self.stageChk['map']:
-                    self.mapping = not self.mapping
-                    if self.mapping :
-                        self.map.showMap()
-                        pg.display.update()
-                        self.mapping = not self.mapping
+                    self.mapping = True
+                    self.map.showMap()
+                    pg.display.update()
+                    time.sleep(0.3)
+                    self.mapping = False
             elif self.keys[pg.K_e]:
                 self.pos = self.escape
                 self.Beforpos = self.escape
