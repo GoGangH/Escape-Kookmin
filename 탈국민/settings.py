@@ -95,8 +95,8 @@ BGM = os.listdir(os.path.join(GAME_DIR, 'bgm'))
 SFX = os.listdir(os.path.join(GAME_DIR, 'sfx'))
 
 #FONTS
-MAINFONT = 'font\\YoonMingukR.ttf'
-CODEFONT = 'font\\D2Coding.ttc'
+MAINFONT = os.path.join('font','YoonMingukR.ttf')
+CODEFONT = os.path.join('font','D2Coding.ttc')
 
 #Quiz setting
 ENTER_IMG = 'quiz_enter.png'

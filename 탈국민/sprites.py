@@ -114,11 +114,11 @@ class Player(pg.sprite.Sprite):
             if self.keys[pg.K_SPACE]:
                 self.game.draw()
                 if self.chat.hasNextPage():
-                    self.chat.drawchat()
                     time.sleep(0.5)
+                    self.chat.drawchat()
                 else:
-                    self.chating = False
                     time.sleep(0.2)
+                    self.chating = False
         elif self.mapping:
             pass
 
@@ -398,14 +398,15 @@ class Player(pg.sprite.Sprite):
     def update(self):
     #캐릭터 위치 업데이트
         self.get_keys()
-        self.pos += self.vel * self.game.dt
-        self.rect.x = self.pos.x
-        self.chk_walls('x')
-        self.rect.y = self.pos.y
-        self.chk_walls('y')
-        self.chknpc()
-        self.chk_potal()
-        self.chkdialogue()
+        if self.chating == False and self.mapping == False:
+            self.pos += self.vel * self.game.dt
+            self.rect.x = self.pos.x
+            self.chk_walls('x')
+            self.rect.y = self.pos.y
+            self.chk_walls('y')
+            self.chknpc()
+            self.chk_potal()
+            self.chkdialogue()
 
 class NPC(pg.sprite.Sprite):
     def __init__(self, game, x, y, type):
