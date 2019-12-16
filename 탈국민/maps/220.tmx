@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="50" height="50" tilewidth="48" tileheight="48" infinite="0" nextlayerid="5" nextobjectid="20">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="50" height="50" tilewidth="48" tileheight="48" infinite="0" nextlayerid="5" nextobjectid="21">
  <tileset firstgid="1" name="GRAY" tilewidth="48" tileheight="48" tilecount="1" columns="1">
   <image source="img/GRAY.png" width="48" height="48"/>
  </tileset>
@@ -231,6 +231,13 @@
     <property name="dialogue length0" type="int" value="1"/>
     <property name="dialogue length1" type="int" value="0"/>
     <property name="dialogue00" value="책으로 빽빽하다"/>
+   </properties>
+  </object>
+  <object id="20" name="item" type="print" x="760" y="762" width="108" height="62.6667">
+   <properties>
+    <property name="dialogue length0" type="int" value="1"/>
+    <property name="dialogue length1" type="int" value="0"/>
+    <property name="dialogue00" value="프린트기가 놓여있다."/>
    </properties>
   </object>
  </objectgroup>
