@@ -11,6 +11,7 @@ STARTIMAGE_DIR = os.path.join(GAME_DIR, 'image','startscreen')
 QUIZ_DIR = os.path.join(GAME_DIR, 'image','quiz')
 MAPIMG_DIR = os.path.join(GAME_DIR, 'image','map')
 IMAGE_DIR = os.path.join(GAME_DIR, 'image')
+ENDINGIMG_DIR = os.path.join(GAME_DIR, 'image', 'ending')
 
 # define some colors (R, G, B)
 WHITE = (255, 255, 255)

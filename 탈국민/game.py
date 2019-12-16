@@ -230,8 +230,80 @@ class Game:
 
         time.sleep(0.2)
         self.screen.fill(BLACK)
+
     def ending(self):
         #game ending
+        shadowimg = pg.image.load(os.path.join(IMAGE_DIR, 'black2.png'))
+        pImage = []
+        fps =  0.5
+        ending_dir = os.path.join(ENDINGIMG_DIR, "scene")
+        endingimage = os.listdir(ending_dir)
+        for i in endingimage:
+            pImage.append(pg.image.load(path.join(ending_dir, i)))
+
+        pg.mixer.stop()
+        set_music('home.ogg', volume=0.3)
+        for i in range(len(pImage)):
+            self.screen.blit(pImage[i], self.rect)
+            pg.display.update()
+            if i == 8:
+                set_sfx('foot.ogg')
+                pg.mixer.music.set_volume(0.2)
+                fps = 0.3
+            elif i == 19:
+                fps=1
+                pg.mixer.music.fadeout(600)
+            elif i == 21:
+                pg.mixer.stop()
+                set_sfx('onlight.ogg')
+                time.sleep(0.3)
+                fps = 0.5
+            elif i== 22:
+                time.sleep(0.5)
+                pg.mixer.stop()
+                set_sfx('ramen.ogg', volume=0.2)
+            elif i==27:
+                pg.mixer.fadeout(500)
+
+            time.sleep(fps)
+        for i in range(10):
+                self.screen.blit(shadowimg, self.rect)
+                pg.display.update()
+                time.sleep(0.1)
+        time.sleep(0.2)
+        pg.mixer.stop()
+        
+        set_music('credit.ogg')
+        time.sleep(1)
+
+        shadowimg = pg.image.load(os.path.join(IMAGE_DIR, 'black2.png'))
+        pImage = []
+
+        credit_dir = os.path.join(ENDINGIMG_DIR, "credit")
+        creditimage = os.listdir(credit_dir)
+        for i in creditimage:
+            pImage.append(pg.image.load(path.join(credit_dir, i)))
+
+        self.screen.fill(BLACK)
+
+        fps = 2
+
+        for i in range(len(pImage)):
+            set_sfx('switch.ogg')
+            self.screen.blit(pImage[i], self.rect)
+            pg.display.update()
+            time.sleep(2)
+            for i in range(6):
+                self.screen.blit(shadowimg, self.rect)
+                pg.display.update()
+                time.sleep(0.1)
+            if i == 3:
+                fps = 1.5
+                pg.mixer.music.fadeout(400) 
+            time.sleep(fps)
+        pg.mixer.music.fadeout(600)
+        pg.mixer.stop()
+        time.sleep(1)
         pg.quit()
         sys.exit()
 
