@@ -6,10 +6,10 @@ import os
 #DIRS
 GAME_DIR = os.path.dirname(__file__)
 CHAT_DIR = os.path.join(GAME_DIR, 'chat')
-PROLOGUEIMAGE_DIR = os.path.join(GAME_DIR, 'image\\prologue')
-STARTIMAGE_DIR = os.path.join(GAME_DIR, 'image\\startscreen')
-QUIZ_DIR = os.path.join(GAME_DIR, 'image\\quiz')
-MAPIMG_DIR = os.path.join(GAME_DIR, 'image\\map')
+PROLOGUEIMAGE_DIR = os.path.join(GAME_DIR, 'image','prologue')
+STARTIMAGE_DIR = os.path.join(GAME_DIR, 'image','startscreen')
+QUIZ_DIR = os.path.join(GAME_DIR, 'image','quiz')
+MAPIMG_DIR = os.path.join(GAME_DIR, 'image','map')
 IMAGE_DIR = os.path.join(GAME_DIR, 'image')
 
 # define some colors (R, G, B)
