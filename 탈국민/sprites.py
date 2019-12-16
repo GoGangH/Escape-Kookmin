@@ -27,6 +27,7 @@ class Player(pg.sprite.Sprite):
         self.map = Maps(self.screen)
         self.chat = None
         self.chating = False
+        self.mapping = False
         self.Mapstage = stage
         self.stupidDegree = 0
         self.direction=0
@@ -66,7 +67,7 @@ class Player(pg.sprite.Sprite):
         self.vel = vec(0, 0)
         self.keys = pg.key.get_pressed()
 
-        if self.chating == False:
+        if self.chating == False and self.mapping == False:
             if self.keys[pg.K_LEFT] or self.keys[pg.K_a]:
                 if self.direction != 1 :
                     self.posdirection=self.pos.x
@@ -96,14 +97,16 @@ class Player(pg.sprite.Sprite):
                 time.sleep(0.5)
             elif self.keys[pg.K_m]:
                 if self.stageChk['map']:
+                    self.mapping = True
                     self.map.showMap()
                     pg.display.update()
                     time.sleep(0.3)
+                    self.mapping = False
             else :
                 self.chkdirection()
             if self.vel.x != 0 and self.vel.y != 0:
                 self.vel *= 0.7071
-        else:
+        elif self.chating == True:
             if self.keys[pg.K_f]:
                 self.chating = False
             if self.keys[pg.K_SPACE]:
@@ -114,6 +117,8 @@ class Player(pg.sprite.Sprite):
                 else:
                     self.chating = False
                     time.sleep(0.2)
+        elif self.mapping:
+            pass
 
         self.beforKey = self.keys
 

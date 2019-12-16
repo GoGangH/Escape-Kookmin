@@ -34,7 +34,6 @@ class Maps:
             for evt in pg.event.get():
                 if evt.type == pg.KEYDOWN:
                     if evt.key == pg.K_m:
-                        self.showing = False
                         answering = False
                     if self.mapnum == 0:
                         if evt.key == pg.K_RIGHT:
@@ -52,10 +51,8 @@ class Maps:
                             pg.display.update()
 
     def showMap(self):
-        self.showing = True
-        while self.showing:
-            self.updateMapimg()
-            self.drawMap()
-            self.drawArrow()
-            pg.display.update()
-            self.get_keys()
+        self.updateMapimg()
+        self.drawMap()
+        self.drawArrow()
+        pg.display.update()
+        self.get_keys()
