@@ -51,7 +51,7 @@ STARTIMAGE = os.listdir(STARTIMAGE_DIR)
 PROLOGUEIMAGE = os.listdir(PROLOGUEIMAGE_DIR)
 
 #player settings
-PLAYER_SPEED = 180
+PLAYER_SPEED = 250
 PLAYER_IMG = [
     ['koomin00.png','koomin01.png','koomin00.png','koomin02.png'],
     ['koomin10.png','koomin11.png','koomin10.png','koomin12.png'],

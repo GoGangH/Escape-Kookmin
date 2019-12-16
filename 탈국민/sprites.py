@@ -42,7 +42,8 @@ class Player(pg.sprite.Sprite):
             'map' : 0,
             'clothPortal' : 0,
             'muscle' : 0,
-            'xycar' : 0
+            'xycar' : 0,
+            'teddy' : 0,
         }
         self.stageDialogue = {
             'start' : 0,
@@ -172,8 +173,8 @@ class Player(pg.sprite.Sprite):
             for sprite in hits:
                 if sprite.name == 'quiz':
                     chat = [['철컥하는 소리가 들린다. 어딘가 열린 것 같다.'],['비웃는 소리가 들린다.']]
-                    self.chating = True
                     self.chatmake(sprite.dialoguelist, self.stageChk[sprite.name])
+                    self.chating = True
                     if self.stageChk[sprite.name] == 0:
                         self.quiz = Quiz(self.screen, self.game, sprite.properties['answer'],chat)
                         self.quiz.startQuiz()
@@ -343,6 +344,15 @@ class Player(pg.sprite.Sprite):
                             self.chating = True
                             self.chatmake(sprite.dialoguelist, 1)
                         else :
+                            self.pos = self.Beforpos
+                            if self.direction == 0 :
+                                self.pos.y-=20
+                            if self.direction == 1 :
+                                self.pos.x+=20
+                            if self.direction == 2 :
+                                self.pos.y+=20
+                            if self.direction == 3 :
+                                self.pos.x-=20
                             set_sfx(SOUNDEFFECT_LIST[5])
                             chat = [['철컥소리와 함께 문이 열렸다.']]
                             self.chating = True

@@ -29,7 +29,6 @@ class Game:
 
         self.all_sprites = pg.sprite.Group()
         self.player = Player(self, 0, 0, self.screen, self.mapStage)
-        self.end=False
         self.load_data()
 
     def load_data(self):
@@ -82,6 +81,7 @@ class Game:
         set_music(SOUNDLIST[0])
         while self.playing:
             self.dt = self.clock.tick(FPS) / 1000
+            if self.player.end==True : self.ending()
             self.events()
             if self.mapStage!=self.player.Mapstage:
                 self.mapStage = self.player.Mapstage
@@ -100,7 +100,6 @@ class Game:
         self.all_sprites.update()
         self.items.update()
         self.camera.update(self.player)
-        self.end=self.player.end
 
     def draw(self):
         #스크린 draw
@@ -183,10 +182,10 @@ class Game:
         pImage = []
 
         self.screen.fill(BLACK)
-
     def ending(self):
         #game ending
-        pass
+        pg.quit()
+        sys.exit()
 
     def render_shadow(self):
         #player shadow render
