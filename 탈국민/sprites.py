@@ -95,9 +95,10 @@ class Player(pg.sprite.Sprite):
                 self.chk_items()
                 time.sleep(0.5)
             elif self.keys[pg.K_m]:
-                self.map.showMap()
-                pg.display.update()
-                time.sleep(0.5)
+                if self.stageChk['map']:
+                    self.map.showMap()
+                    pg.display.update()
+                    time.sleep(0.3)
             else :
                 self.chkdirection()
             if self.vel.x != 0 and self.vel.y != 0:
