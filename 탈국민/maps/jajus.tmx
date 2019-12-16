@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="40" height="40" tilewidth="48" tileheight="48" infinite="0" nextlayerid="10" nextobjectid="41">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="40" height="40" tilewidth="48" tileheight="48" infinite="0" nextlayerid="10" nextobjectid="45">
  <tileset firstgid="1" name="48_pipo" tilewidth="48" tileheight="48" tilecount="1064" columns="8">
   <image source="img/48_pipo.png" width="384" height="6384"/>
  </tileset>
@@ -196,7 +196,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4383,0,0,0,4382,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4382,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,4365,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2147488013,0,0,0,0,
+0,0,0,0,0,4365,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,978,0,0,0,0,0,0,0,0,978,2147488013,0,0,0,0,
 0,0,0,0,0,4377,0,0,0,0,0,0,4236,0,4236,0,0,0,4383,0,0,0,0,0,0,0,0,4236,4236,0,0,0,0,0,0,2147488025,0,0,0,0,
 0,0,0,0,0,4377,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2147488025,0,0,0,0,
 0,0,0,0,0,4377,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2147488025,0,0,0,0,
@@ -207,7 +207,7 @@
 0,0,0,0,0,4365,0,0,0,0,0,0,0,0,0,0,0,0,4383,0,0,0,4382,0,0,0,0,0,0,0,0,0,0,0,0,2147488013,0,0,0,0,
 0,0,0,0,0,4377,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2147488025,0,0,0,0,
 0,0,0,0,0,4377,0,0,0,0,0,0,0,0,0,0,0,0,4383,0,0,0,4382,0,0,0,0,0,0,0,0,0,0,0,0,2147488025,0,0,0,0,
-0,0,0,0,0,4377,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2147488025,0,0,0,0,
+0,0,0,0,0,4377,0,0,0,0,0,0,0,0,978,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2147488025,0,0,0,0,
 0,0,0,0,0,1073746189,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3221229837,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -353,7 +353,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="9" name="Object Layer 1" visible="0">
+ <objectgroup id="9" name="Object Layer 1">
   <object id="1" name="portal" type="4thfloor" x="1536" y="1581" width="96" height="62">
    <properties>
     <property name="dialogue length0" type="int" value="0"/>
@@ -437,12 +437,34 @@
   <object id="39" name="item" type="teddy" x="1392" y="624" width="48" height="48">
    <properties>
     <property name="dialogue length0" type="int" value="3"/>
-    <property name="dialogue length1" type="int" value="0"/>
+    <property name="dialogue length1" type="int" value="1"/>
     <property name="dialogue00" value="곰돌이에 이름표가 달려있다."/>
     <property name="dialogue01" value="&quot;최진우&quot;"/>
     <property name="dialogue02" value="아 내껀 집에 있구나."/>
+    <property name="dialogue10" value="내 테디짱이 아니면 필요없어!"/>
    </properties>
   </object>
   <object id="40" name="player" type="escape" x="1152" y="1056" width="48" height="48"/>
+  <object id="41" name="item" type="paper" x="1632" y="816" width="48" height="48">
+   <properties>
+    <property name="dialogue length0" type="int" value="1"/>
+    <property name="dialogue length1" type="int" value="0"/>
+    <property name="dialogue00" value="쓸데 없는 말이 적혀있다."/>
+   </properties>
+  </object>
+  <object id="43" name="item" type="paper" x="1200" y="816" width="48" height="48">
+   <properties>
+    <property name="dialogue length0" type="int" value="1"/>
+    <property name="dialogue length1" type="int" value="0"/>
+    <property name="dialogue00" value="쓸데 없는 말이 적혀있다."/>
+   </properties>
+  </object>
+  <object id="44" name="item" type="paper" x="672" y="1344" width="48" height="48">
+   <properties>
+    <property name="dialogue length0" type="int" value="1"/>
+    <property name="dialogue length1" type="int" value="0"/>
+    <property name="dialogue00" value="xycar에 열쇠가 묶여 있다고 적혀있다."/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

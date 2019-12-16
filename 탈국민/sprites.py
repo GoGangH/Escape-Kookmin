@@ -33,6 +33,7 @@ class Player(pg.sprite.Sprite):
         self.direction=0
         self.posdirection=0
         self.beformove = 0
+        self.escape=vec(x,y)
         self.move =0
         self.imgname = 0
         self.stageChk = {
@@ -99,11 +100,14 @@ class Player(pg.sprite.Sprite):
                 time.sleep(0.5)
             elif self.keys[pg.K_m]:
                 if self.stageChk['map']:
-                    self.mapping = True
-                    self.map.showMap()
-                    pg.display.update()
-                    time.sleep(0.3)
-                    self.mapping = False
+                    self.mapping = not self.mapping
+                    if self.mapping :
+                        self.map.showMap()
+                        pg.display.update()
+                        self.mapping = not self.mapping
+            elif self.keys[pg.K_e]:
+                self.pos = self.escape
+                self.Beforpos = self.escape
             else :
                 self.chkdirection()
             if self.vel.x != 0 and self.vel.y != 0:

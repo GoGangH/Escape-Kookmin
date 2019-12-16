@@ -52,6 +52,8 @@ class Game:
         cnt = 0
         for tile_object in self.map.tmxdata.objects:
             if tile_object.name == 'player':
+                if tile_object.type == 'escape':
+                    self.player.escape = vec(tile_object.x, tile_object.y)
                 if tile_object.type == self.mapname and cnt ==0:
                     cnt+=1
                     self.player.set_pos(tile_object.x, tile_object.y)

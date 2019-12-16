@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="70" height="30" tilewidth="48" tileheight="48" infinite="0" nextlayerid="11" nextobjectid="44">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="70" height="30" tilewidth="48" tileheight="48" infinite="0" nextlayerid="11" nextobjectid="45">
  <tileset firstgid="1" name="GRAY" tilewidth="48" tileheight="48" tilecount="1" columns="1">
   <image source="img/GRAY.png" width="48" height="48"/>
  </tileset>
@@ -268,5 +268,6 @@
    </properties>
   </object>
   <object id="43" name="player" type="220" x="432.667" y="919.333" width="48" height="48"/>
+  <object id="44" name="player" type="escape" x="960" y="720" width="48" height="48"/>
  </objectgroup>
 </map>
