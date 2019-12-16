@@ -234,7 +234,7 @@
     <property name="dialogue length1" type="int" value="0"/>
    </properties>
   </object>
-  <object id="30" name="player" type="4thfloor" x="2377" y="811.667" width="48" height="48"/>
+  <object id="30" name="player" type="4thfloor" x="2377" y="837.667" width="48" height="48"/>
   <object id="31" name="wall" x="798.667" y="788" width="56" height="54.6667"/>
   <object id="32" name="portal" type="none" x="624.333" y="868.667" width="48" height="48">
    <properties>

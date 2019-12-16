@@ -597,7 +597,7 @@
 </data>
  </layer>
  <objectgroup id="7" name="Object Layer 1">
-  <object id="1" name="player" type="secondfloor" x="1318.33" y="581.363" width="53.3333" height="45.3333">
+  <object id="1" name="player" type="secondfloor" x="1318.33" y="617.727" width="53.3333" height="45.3333">
    <properties>
     <property name="dialogue length0" type="int" value="0"/>
     <property name="dialogue length1" type="int" value="0"/>

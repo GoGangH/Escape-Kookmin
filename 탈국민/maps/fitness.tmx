@@ -284,7 +284,7 @@
   <object id="43" name="wall" x="960" y="280" width="48" height="58"/>
   <object id="44" name="wall" x="1056" y="278" width="241.333" height="90"/>
   <object id="49" name="wall" x="768" y="288" width="192" height="62"/>
-  <object id="50" name="item" type="strong" x="770.872" y="764.898" width="62.7014" height="48">
+  <object id="50" name="item" type="strong" x="770.872" y="762.231" width="62.7014" height="48">
    <properties>
     <property name="dialogue length0" value="2"/>
     <property name="dialogue length1" type="int" value="0"/>
@@ -363,7 +363,7 @@
     <property name="dialogue01" value="테디짱이 없으면 잘 수 없어!"/>
    </properties>
   </object>
-  <object id="61" name="item" type="bag" x="770.667" y="821.333" width="69.3333" height="34.6667">
+  <object id="61" name="item" type="bag" x="770.667" y="832" width="69.3333" height="34.6667">
    <properties>
     <property name="dialogue length0" type="int" value="1"/>
     <property name="dialogue length1" type="int" value="0"/>
