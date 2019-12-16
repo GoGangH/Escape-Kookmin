@@ -440,7 +440,7 @@
     <property name="dialogue length1" type="int" value="0"/>
     <property name="dialogue00" value="곰돌이에 이름표가 달려있다."/>
     <property name="dialogue01" value="&quot;최진우&quot;"/>
-    <property name="dialogue03" value="아 내껀 집에 있구나."/>
+    <property name="dialogue02" value="아 내껀 집에 있구나."/>
    </properties>
   </object>
  </objectgroup>

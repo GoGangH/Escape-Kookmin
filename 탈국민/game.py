@@ -157,9 +157,8 @@ class Game:
             pImage.append(pg.image.load(path.join(prologue1_dir, i)))
         
         for i in range(len(pImage)) :
-            self.screen.blit(pImage[i] ,self.rect)
+            self.screen.blit(pImage[i], self.rect)
             pg.display.update()
-
             if i == 1:
                 set_sfx('thing.ogg')
             if i == 2:
@@ -167,20 +166,66 @@ class Game:
             elif i == 9:
                 fps = 1
             elif i == 10:
-                #휘파람
-                pass
+                set_sfx('humming.ogg')
             elif i == 12:
                 fps = 0.3
             elif i == 15:
                 fps = 1
             elif i == 16:
                 fps = 0.3
-                        
             time.sleep(fps)
         
         #SCENE2
         pImage = []
+        fps =  0.4
+        prologue1_dir = os.path.join(PROLOGUEIMAGE_DIR, "scene2")
+        prologueimage = os.listdir(prologue1_dir)
+        for i in prologueimage:
+            pImage.append(pg.image.load(path.join(prologue1_dir, i)))
 
+        for i in range(len(pImage)):
+            self.screen.blit(pImage[i], self.rect)
+            pg.display.update()
+            if i==6:
+                set_sfx('dooropen.ogg')
+            elif i==9:
+                fps = 1
+            elif i==11:
+                fps = 0.5
+            elif i==13:
+                set_sfx('curtain.ogg')
+            elif i==14:
+                fps = 0.5
+                time.sleep(0.2)
+            time.sleep(fps)
+
+        #scene3
+        pImage = []
+        fps =  0.6
+        prologue1_dir = os.path.join(PROLOGUEIMAGE_DIR, "scene3")
+        prologueimage = os.listdir(prologue1_dir)
+        for i in prologueimage:
+            pImage.append(pg.image.load(path.join(prologue1_dir, i)))
+        for i in range(len(pImage)):
+            self.screen.blit(pImage[i], self.rect)
+            pg.display.update()
+            if i==0:
+                set_music('shower.ogg')
+            elif i == 6:
+                set_sfx('thing.ogg', volume=0.7)
+                time.sleep(0.7)
+            elif i == 14:
+                time.sleep(0.1)
+                set_music('horror.ogg')
+                fps = 2
+            elif i==15:
+                set_sfx('switch.ogg')
+            elif i == 16:
+                set_sfx('her.ogg')
+                time.sleep(0.5)
+            time.sleep(fps)
+
+        time.sleep(0.2)
         self.screen.fill(BLACK)
     def ending(self):
         #game ending
