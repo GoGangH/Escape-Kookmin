@@ -245,13 +245,14 @@
   </object>
   <object id="64" name="dialogue" type="prologue" x="624" y="672" width="48" height="48">
    <properties>
-    <property name="dialogue length0" type="int" value="5"/>
+    <property name="dialogue length0" type="int" value="6"/>
     <property name="dialogue length1" type="int" value="0"/>
     <property name="dialogue00" value="조작법 설명"/>
-    <property name="dialogue01" value="WASD, 방향키 : 이동"/>
+    <property name="dialogue01" value="wasd, 방향키 : 이동"/>
     <property name="dialogue02" value="SPACE : 아이템 상호작용"/>
-    <property name="dialogue03" value="F : 대화창 강제 종료"/>
-    <property name="dialogue04" value="주의 : esc키는 게임을 강제종료합니다."/>
+    <property name="dialogue03" value="f : 대화창 강제 종료"/>
+    <property name="dialogue04" value="p : 비상탈출 (맵마다 한번 가능)"/>
+    <property name="dialogue05" value="주의 : esc키는 게임을 강제종료합니다."/>
    </properties>
   </object>
   <object id="65" name="player" type="escape" x="1152" y="864" width="48" height="48"/>
