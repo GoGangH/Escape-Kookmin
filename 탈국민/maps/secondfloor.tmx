@@ -236,7 +236,7 @@
   </object>
   <object id="30" name="player" type="4thfloor" x="2377" y="811.667" width="48" height="48"/>
   <object id="31" name="wall" x="798.667" y="788" width="56" height="54.6667"/>
-  <object id="32" name="portal" type="none" x="625" y="884" width="48" height="48">
+  <object id="32" name="portal" type="none" x="624.333" y="868.667" width="48" height="48">
    <properties>
     <property name="dialogue length0" type="int" value="1"/>
     <property name="dialogue length1" type="int" value="0"/>
@@ -247,26 +247,26 @@
   <object id="37" name="wall" x="1968" y="1352" width="192" height="40"/>
   <object id="38" name="wall" x="2498" y="1352" width="192" height="40"/>
   <object id="39" name="wall" x="3230" y="912" width="34" height="192"/>
-  <object id="40" name="portal" type="none" x="191" y="882" width="48" height="48">
+  <object id="40" name="portal" type="none" x="193" y="867.333" width="48" height="48">
    <properties>
     <property name="dialogue length0" type="int" value="1"/>
     <property name="dialogue length1" type="int" value="0"/>
     <property name="dialogue00" value="문이 잠겨있다."/>
    </properties>
   </object>
-  <object id="41" name="portal" type="none" x="1246" y="882" width="96" height="48">
+  <object id="41" name="portal" type="none" x="1246" y="866.667" width="96" height="48">
    <properties>
     <property name="dialogue length0" type="int" value="1"/>
     <property name="dialogue length1" type="int" value="0"/>
     <property name="dialogue00" value="문이 잠겨있다."/>
    </properties>
   </object>
-  <object id="42" name="portal" type="220" x="430" y="884" width="50" height="52">
+  <object id="42" name="portal" type="220" x="431.333" y="863.333" width="50" height="52">
    <properties>
     <property name="dialogue length0" type="int" value="0"/>
     <property name="dialogue length1" type="int" value="0"/>
    </properties>
   </object>
-  <object id="43" name="player" type="220" x="432" y="946" width="48" height="48"/>
+  <object id="43" name="player" type="220" x="432.667" y="919.333" width="48" height="48"/>
  </objectgroup>
 </map>

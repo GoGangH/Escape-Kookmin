@@ -34,6 +34,7 @@ class Player(pg.sprite.Sprite):
         self.imgname = 0
         self.stageChk = {
             'quiz' : 0,
+            'quiz2' : 0,
             'cloth' : 0,
             'map' : 0,
             'clothPortal' : 0,
@@ -165,6 +166,15 @@ class Player(pg.sprite.Sprite):
                         self.quiz.startQuiz()
                     if self.quiz.solve:
                         self.stageChk[sprite.name] = 1
+                if sprite.name == 'quiz2':
+                    chat = [['7호관 정문 열쇠를 얻었다.'],['비웃는 소리가 들린다.']]
+                    self.chating = True
+                    self.chatmake(sprite.dialoguelist, self.stageChk[sprite.name])
+                    if self.stageChk[sprite.name] == 0:
+                        self.quiz = Quiz(self.screen, self.game, sprite.properties['answer'],chat)
+                        self.quiz.startQuiz()
+                    if self.quiz.solve:
+                        self.stageChk[sprite.name] = 1
                 elif sprite.name == 'cloth':
                     self.chating = True
                     self.chatmake(sprite.dialoguelist, self.stageChk[sprite.name])
@@ -246,8 +256,36 @@ class Player(pg.sprite.Sprite):
                     self.Mapstage=PORTALMAP[sprite.name]
                 elif sprite.name == 'jajus':
                     if self.stageChk['quiz'] == 1:
-                        set_sfx(SOUNDEFFECT_LIST[9])
+                        set_sfx(SOUNDEFFECT_LIST[5])
                         self.Mapstage=PORTALMAP[sprite.name]
+                    else :
+                        self.pos = self.Beforpos
+                        if self.direction == 0 :
+                            self.pos.y-=20
+                        if self.direction == 1 :
+                            self.pos.x+=20
+                        if self.direction == 2 :
+                            self.pos.y+=20
+                        if self.direction == 3 :
+                            self.pos.x-=20
+                        self.chating = True
+                        self.chatmake(sprite.dialoguelist, self.stageChk['quiz'])
+                elif sprite.name == '444':
+                    if self.stageChk['xycar'] == 1:
+                        set_sfx(SOUNDEFFECT_LIST[5])
+                        self.Mapstage=PORTALMAP[sprite.name]
+                    else :
+                        self.pos = self.Beforpos
+                        if self.direction == 0 :
+                            self.pos.y-=20
+                        if self.direction == 1 :
+                            self.pos.x+=20
+                        if self.direction == 2 :
+                            self.pos.y+=20
+                        if self.direction == 3 :
+                            self.pos.x-=20
+                        self.chating = True
+                        self.chatmake(sprite.dialoguelist, self.stageChk['xycar'])
                 elif sprite.name == 'none' :
                     self.pos = self.Beforpos
                     if self.direction == 0 :

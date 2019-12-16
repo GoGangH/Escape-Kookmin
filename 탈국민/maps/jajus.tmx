@@ -354,7 +354,7 @@
 </data>
  </layer>
  <objectgroup id="9" name="Object Layer 1">
-  <object id="1" name="portal" type="4thfloor" x="1536" y="1573" width="96" height="62">
+  <object id="1" name="portal" type="4thfloor" x="1536" y="1581" width="96" height="62">
    <properties>
     <property name="dialogue length0" type="int" value="0"/>
     <property name="dialogue length1" type="int" value="0"/>
