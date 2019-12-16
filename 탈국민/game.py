@@ -262,7 +262,7 @@ class Game:
                 time.sleep(0.5)
                 pg.mixer.stop()
                 set_sfx('ramen.ogg', volume=0.2)
-            elif i==27:
+            elif i==28:
                 pg.mixer.fadeout(500)
 
             time.sleep(fps)
@@ -273,7 +273,7 @@ class Game:
         time.sleep(0.2)
         pg.mixer.stop()
         
-        set_music('credit.ogg')
+        set_music('credit.ogg', volume=0.6)
         time.sleep(1)
 
         shadowimg = pg.image.load(os.path.join(IMAGE_DIR, 'black2.png'))
