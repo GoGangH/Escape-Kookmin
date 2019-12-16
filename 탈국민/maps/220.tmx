@@ -198,10 +198,9 @@
   <object id="12" name="item" type="quiz" x="672" y="705.333" width="49.3333" height="64">
    <properties>
     <property name="answer" value="double-long"/>
-    <property name="dialogue length0" type="int" value="2"/>
+    <property name="dialogue length0" type="int" value="1"/>
     <property name="dialogue length1" type="int" value="1"/>
-    <property name="dialogue00" value="어딘가의 제어 장치이다."/>
-    <property name="dialogue01" value="문제를 풀면 작동할 것 같다."/>
+    <property name="dialogue00" value="어딘가의 제어 장치이다. 문제를 풀면 작동할 것 이다."/>
     <property name="dialogue10" value="이런 문제를 한번 더 풀긴 싫다."/>
    </properties>
   </object>

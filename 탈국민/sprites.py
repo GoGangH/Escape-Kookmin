@@ -180,7 +180,7 @@ class Player(pg.sprite.Sprite):
                         self.quiz.startQuiz()
                     if self.quiz.solve:
                         self.stageChk[sprite.name] = 1
-                if sprite.name == 'quiz2':
+                elif sprite.name == 'quiz2':
                     chat = [['7호관 정문 열쇠를 얻었다.'],['비웃는 소리가 들린다.']]
                     self.chating = True
                     self.chatmake(sprite.dialoguelist, self.stageChk[sprite.name])

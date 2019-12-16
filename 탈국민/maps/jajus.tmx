@@ -436,10 +436,11 @@
   </object>
   <object id="39" name="item" type="teddy" x="1392" y="624" width="48" height="48">
    <properties>
-    <property name="dialogue length0" type="int" value="2"/>
+    <property name="dialogue length0" type="int" value="3"/>
     <property name="dialogue length1" type="int" value="0"/>
-    <property name="dialogue00" value="이건 내 인형이 아니다."/>
-    <property name="dialogue01" value="생각해보니 집에 두고왔다."/>
+    <property name="dialogue00" value="곰돌이에 이름표가 달려있다."/>
+    <property name="dialogue01" value="&quot;최진우&quot;"/>
+    <property name="dialogue03" value="아 내껀 집에 있구나."/>
    </properties>
   </object>
  </objectgroup>
