@@ -35,6 +35,7 @@ class Player(pg.sprite.Sprite):
         self.stageChk = {
             'quiz' : 0,
             'cloth' : 0,
+            'map' : 0,
             'clothPortal' : 0,
             'muscle' : 0,
             'xycar' : 0
@@ -42,10 +43,14 @@ class Player(pg.sprite.Sprite):
         self.stageDialogue = {
             'start' : 0,
             'prologue' : 0,
+            'jajus' : 0,
+            'teddystart' : 0,
         }
         self.dialogue = {
             'start' : '쿠민',
-            'prologue' : ''
+            'prologue' : '',
+            'jajus' : '',
+            'teddystart' : '쿠민', 
         }
 
     def set_pos(self, x, y):
@@ -187,6 +192,10 @@ class Player(pg.sprite.Sprite):
                                 self.game.npcs.chk=1
                                 break
                     self.stageChk['xycar']=1
+                elif sprite.name == 'map':
+                    self.chating = True
+                    self.chatmake(sprite.dialoguelist, self.stageChk[sprite.name])
+                    self.stageChk[sprite.name] = 1
                 else :
                     self.chating = True
                     self.chatmake(sprite.dialoguelist, 0)
@@ -235,9 +244,23 @@ class Player(pg.sprite.Sprite):
                 elif sprite.name == 'shower':
                     set_sfx(SOUNDEFFECT_LIST[1])
                     self.Mapstage=PORTALMAP[sprite.name]
-                elif sprite.name == '4thfloor':
-                    set_sfx(SOUNDEFFECT_LIST[9])
-                    self.Mapstage=PORTALMAP[sprite.name]
+                elif sprite.name == 'jajus':
+                    if self.stageChk['quiz'] == 1:
+                        set_sfx(SOUNDEFFECT_LIST[9])
+                        self.Mapstage=PORTALMAP[sprite.name]
+                elif sprite.name == 'none' :
+                    self.pos = self.Beforpos
+                    if self.direction == 0 :
+                        self.pos.y-=20
+                    if self.direction == 1 :
+                        self.pos.x+=20
+                    if self.direction == 2 :
+                        self.pos.y+=20
+                    if self.direction == 3 :
+                        self.pos.x-=20
+                    self.chatmake(sprite.dialoguelist, 0)
+                    self.chating = True
+                    time.sleep(0.2)
                 else:
                     set_sfx(SOUNDEFFECT_LIST[5])
                     self.Mapstage=PORTALMAP[sprite.name]
@@ -250,8 +273,10 @@ class Player(pg.sprite.Sprite):
         if hits:
             for sprite in hits:
                 if self.stageDialogue[sprite.name] == 0:
+                    if sprite.name == 'jajus':
+                        set_sfx(SOUNDEFFECT_LIST[7])
                     self.chating = True
-                    self.chatmake(sprite.dialoguelist, self.stageChk['clothPortal'],self.dialogue[sprite.name])
+                    self.chatmake(sprite.dialoguelist, self.stageDialogue[sprite.name], self.dialogue[sprite.name])
                     time.sleep(0.2)
                     self.stageDialogue[sprite.name]=1
     

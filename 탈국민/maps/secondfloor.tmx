@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="70" height="30" tilewidth="48" tileheight="48" infinite="0" nextlayerid="11" nextobjectid="40">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="70" height="30" tilewidth="48" tileheight="48" infinite="0" nextlayerid="11" nextobjectid="44">
  <tileset firstgid="1" name="GRAY" tilewidth="48" tileheight="48" tilecount="1" columns="1">
   <image source="img/GRAY.png" width="48" height="48"/>
  </tileset>
@@ -206,7 +206,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="10" name="Object Layer 1" visible="0">
+ <objectgroup id="10" name="Object Layer 1">
   <object id="5" name="player" type="fitness" x="1630" y="360" width="48" height="48"/>
   <object id="8" name="wall" x="48" y="1104" width="864" height="288"/>
   <object id="10" name="wall" x="48" y="720" width="48" height="432"/>
@@ -236,28 +236,7 @@
   </object>
   <object id="30" name="player" type="4thfloor" x="2377" y="811.667" width="48" height="48"/>
   <object id="31" name="wall" x="798.667" y="788" width="56" height="54.6667"/>
-  <object id="32" name="item" type="lockdoor" x="624" y="864" width="48" height="48">
-   <properties>
-    <property name="dialogue length0" type="int" value="1"/>
-    <property name="dialogue length1" type="int" value="0"/>
-    <property name="dialogue00" value="문이 잠겨있다."/>
-   </properties>
-  </object>
-  <object id="33" name="item" type="lockdoor" x="432" y="864" width="48" height="48">
-   <properties>
-    <property name="dialogue length0" type="int" value="1"/>
-    <property name="dialogue length1" type="int" value="0"/>
-    <property name="dialogue00" value="문이 잠겨있다."/>
-   </properties>
-  </object>
-  <object id="34" name="item" type="lockdoor" x="192" y="864" width="48" height="48">
-   <properties>
-    <property name="dialogue length0" type="int" value="1"/>
-    <property name="dialogue length1" type="int" value="0"/>
-    <property name="dialogue00" value="문이 잠겨있다."/>
-   </properties>
-  </object>
-  <object id="35" name="item" type="lockdoor" x="1256" y="864" width="77.3333" height="48">
+  <object id="32" name="portal" type="none" x="625" y="884" width="48" height="48">
    <properties>
     <property name="dialogue length0" type="int" value="1"/>
     <property name="dialogue length1" type="int" value="0"/>
@@ -268,5 +247,26 @@
   <object id="37" name="wall" x="1968" y="1352" width="192" height="40"/>
   <object id="38" name="wall" x="2498" y="1352" width="192" height="40"/>
   <object id="39" name="wall" x="3230" y="912" width="34" height="192"/>
+  <object id="40" name="portal" type="none" x="191" y="882" width="48" height="48">
+   <properties>
+    <property name="dialogue length0" type="int" value="1"/>
+    <property name="dialogue length1" type="int" value="0"/>
+    <property name="dialogue00" value="문이 잠겨있다."/>
+   </properties>
+  </object>
+  <object id="41" name="portal" type="none" x="1246" y="882" width="96" height="48">
+   <properties>
+    <property name="dialogue length0" type="int" value="1"/>
+    <property name="dialogue length1" type="int" value="0"/>
+    <property name="dialogue00" value="문이 잠겨있다."/>
+   </properties>
+  </object>
+  <object id="42" name="portal" type="220" x="430" y="884" width="50" height="52">
+   <properties>
+    <property name="dialogue length0" type="int" value="0"/>
+    <property name="dialogue length1" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="43" name="player" type="220" x="432" y="946" width="48" height="48"/>
  </objectgroup>
 </map>
