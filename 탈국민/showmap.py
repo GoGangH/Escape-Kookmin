@@ -33,7 +33,10 @@ class Maps:
         while answering:
             for evt in pg.event.get():
                 if evt.type == pg.KEYDOWN:
-                    if evt.key == pg.K_m:
+                    if evt.key == pg.K_ESCAPE:
+                        pg.quit()
+                        sys.exit()
+                    elif evt.key == pg.K_m:
                         answering = False
                     if self.mapnum == 0:
                         if evt.key == pg.K_RIGHT:
