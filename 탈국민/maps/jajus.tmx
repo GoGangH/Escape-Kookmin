@@ -402,7 +402,7 @@
   <object id="28" name="wall" x="241" y="1227" width="44" height="186"/>
   <object id="31" name="wall" x="913" y="552" width="142" height="370"/>
   <object id="33" name="wall" x="912" y="1035" width="142" height="370"/>
-  <object id="34" name="dialogue" type="jajus" x="1636" y="1470" width="48" height="96">
+  <object id="34" name="dialogue" type="jajus" x="1636" y="1470" width="93.3333" height="96">
    <properties>
     <property name="dialogue length0" type="int" value="2"/>
     <property name="dialogue length1" type="int" value="0"/>
@@ -410,7 +410,7 @@
     <property name="dialogue01" value="아직도 xycar를 돌리고 있나?"/>
    </properties>
   </object>
-  <object id="35" name="dialogue" type="jajus" x="1532" y="1467" width="48" height="96">
+  <object id="35" name="dialogue" type="jajus" x="1457.33" y="1467" width="122.667" height="96">
    <properties>
     <property name="dialogue length0" type="int" value="2"/>
     <property name="dialogue length1" type="int" value="0"/>
@@ -418,7 +418,7 @@
     <property name="dialogue01" value="아직도 xycar를 돌리고 있나?"/>
    </properties>
   </object>
-  <object id="36" name="dialogue" type="jajus" x="1558" y="1445" width="111" height="39">
+  <object id="36" name="dialogue" type="jajus" x="1558" y="1321" width="111" height="163">
    <properties>
     <property name="dialogue length0" type="int" value="2"/>
     <property name="dialogue length1" type="int" value="0"/>
