@@ -200,7 +200,7 @@
     <property name="answer" value="double-long"/>
     <property name="dialogue length0" type="int" value="1"/>
     <property name="dialogue length1" type="int" value="1"/>
-    <property name="dialogue00" value="어딘가의 제어 장치이다. 문제를 풀면 작동할 것 이다."/>
+    <property name="dialogue00" value="어딘가의 제어 장치이다. 문제를 풀면 작동할 것이다."/>
     <property name="dialogue10" value="이런 문제를 한번 더 풀긴 싫다."/>
    </properties>
   </object>

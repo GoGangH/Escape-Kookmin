@@ -295,16 +295,17 @@
   </object>
   <object id="51" name="item" type="map" x="714.649" y="934" width="62.7014" height="66">
    <properties>
-    <property name="dialogue length0" value="6"/>
+    <property name="dialogue length0" value="7"/>
     <property name="dialogue length1" type="int" value="2"/>
     <property name="dialogue00" value="더러운 쓰레기 통이다."/>
-    <property name="dialogue01" value="프로틴 껍데기가 잔득 들어있다."/>
+    <property name="dialogue01" value="프로틴 껍데기가 잔뜩 들어있다."/>
     <property name="dialogue02" value="엇?"/>
     <property name="dialogue03" value="누군가가 그린 지도를 획득했다."/>
-    <property name="dialogue04" value="m키를 눌러 맵을 열 수 있다."/>
-    <property name="dialogue05" value="맵을 열고 오른쪽 왼쪽 키를 눌러 페이지를 넘길 수 있다."/>
+    <property name="dialogue04" value="M키를 눌러 맵을 열 수 있다."/>
+    <property name="dialogue05" value="맵은 방향키로 이동이 가능하다."/>
+    <property name="dialogue06" value="닫을때는 다시 M키를 누르면 된다."/>
     <property name="dialogue10" value="더러운 쓰레기 통이다."/>
-    <property name="dialogue11" value="프로틴 껍데기가 잔득 들어있다."/>
+    <property name="dialogue11" value="프로틴 껍데기가 잔뜩 들어있다."/>
    </properties>
   </object>
   <object id="52" name="item" type="weight" x="1443" y="342" width="39" height="34">
@@ -368,7 +369,7 @@
    <properties>
     <property name="dialogue length0" type="int" value="1"/>
     <property name="dialogue length1" type="int" value="0"/>
-    <property name="dialogue00" value="가방에 프로틴이 잔득 들어있다."/>
+    <property name="dialogue00" value="가방에 프로틴이 가득 들어있다."/>
    </properties>
   </object>
   <object id="62" name="item" type="wear" x="770.667" y="665.333" width="72" height="42.6667">
