@@ -9,6 +9,8 @@ CHAT_DIR = os.path.join(GAME_DIR, 'chat')
 PROLOGUEIMAGE_DIR = os.path.join(GAME_DIR, 'image\\prologue')
 STARTIMAGE_DIR = os.path.join(GAME_DIR, 'image\\startscreen')
 QUIZ_DIR = os.path.join(GAME_DIR, 'image\\quiz')
+MAPIMG_DIR = os.path.join(GAME_DIR, 'image\\map')
+IMAGE_DIR = os.path.join(GAME_DIR, 'image')
 
 # define some colors (R, G, B)
 WHITE = (255, 255, 255)
@@ -100,3 +102,6 @@ ENTER_IMG = 'quiz_enter.png'
 SYMBOLS = [".", ",", "-", "_", "(", ")",
         "{", "}", "[", "]", "\\", "/",
         "+", " ", "!", ":", ";"]
+
+#map setting
+MAPIMGLIST = sorted(os.listdir(MAPIMG_DIR))
