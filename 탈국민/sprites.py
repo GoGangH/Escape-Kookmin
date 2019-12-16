@@ -4,6 +4,7 @@ import time
 from chat import *
 from sound import *
 from quiz import *
+from showmap import *
 
 vec = pg.math.Vector2
 
@@ -23,6 +24,7 @@ class Player(pg.sprite.Sprite):
         self.pos = vec(x, y)
         self.Beforpos = self.pos
         self.screen = screen
+        self.map = Maps(self.screen)
         self.chat = None
         self.chating = False
         self.Mapstage = stage
@@ -91,6 +93,10 @@ class Player(pg.sprite.Sprite):
                 self.vel.y = PLAYER_SPEED
             elif self.keys[pg.K_SPACE]:
                 self.chk_items()
+                time.sleep(0.5)
+            elif self.keys[pg.K_m]:
+                self.map.showMap()
+                pg.display.update()
                 time.sleep(0.5)
             else :
                 self.chkdirection()
