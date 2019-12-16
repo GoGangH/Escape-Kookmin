@@ -256,8 +256,36 @@ class Player(pg.sprite.Sprite):
                     self.Mapstage=PORTALMAP[sprite.name]
                 elif sprite.name == 'jajus':
                     if self.stageChk['quiz'] == 1:
-                        set_sfx(SOUNDEFFECT_LIST[9])
+                        set_sfx(SOUNDEFFECT_LIST[5])
                         self.Mapstage=PORTALMAP[sprite.name]
+                    else :
+                        self.pos = self.Beforpos
+                        if self.direction == 0 :
+                            self.pos.y-=20
+                        if self.direction == 1 :
+                            self.pos.x+=20
+                        if self.direction == 2 :
+                            self.pos.y+=20
+                        if self.direction == 3 :
+                            self.pos.x-=20
+                        self.chating = True
+                        self.chatmake(sprite.dialoguelist, self.stageChk['quiz'])
+                elif sprite.name == '444':
+                    if self.stageChk['xycar'] == 1:
+                        set_sfx(SOUNDEFFECT_LIST[5])
+                        self.Mapstage=PORTALMAP[sprite.name]
+                    else :
+                        self.pos = self.Beforpos
+                        if self.direction == 0 :
+                            self.pos.y-=20
+                        if self.direction == 1 :
+                            self.pos.x+=20
+                        if self.direction == 2 :
+                            self.pos.y+=20
+                        if self.direction == 3 :
+                            self.pos.x-=20
+                        self.chating = True
+                        self.chatmake(sprite.dialoguelist, self.stageChk['xycar'])
                 elif sprite.name == 'none' :
                     self.pos = self.Beforpos
                     if self.direction == 0 :

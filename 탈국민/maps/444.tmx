@@ -182,7 +182,7 @@
  </layer>
  <objectgroup id="4" name="Object Layer 1">
   <object id="1" name="wall" x="912" y="720" width="48" height="672"/>
-  <object id="2" name="wall" x="960" y="720" width="720" height="144"/>
+  <object id="2" name="wall" x="960" y="720" width="720" height="190"/>
   <object id="3" name="wall" x="1632" y="720" width="48" height="672"/>
   <object id="4" name="wall" x="912" y="1344" width="576" height="48"/>
   <object id="5" name="wall" x="1584" y="1344" width="96" height="48"/>

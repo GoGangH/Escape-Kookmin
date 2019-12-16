@@ -32,8 +32,8 @@ GRIDHEIGHT = HEIGHT / TILESIZE
 
 #map setting
 STAGELEVEL = 0
-STAGETMX = ['showerRoom.tmx', 'fitness.tmx', 'secondfloor.tmx', '4thfloor.tmx', 'jajus.tmx', '220.tmx']
-STAGENAME = ['shower', 'fitness', 'secondfloor', '4thfloor', 'jajus','220']
+STAGETMX = ['showerRoom.tmx', 'fitness.tmx', 'secondfloor.tmx', '4thfloor.tmx', 'jajus.tmx', '220.tmx','444.tmx']
+STAGENAME = ['shower', 'fitness', 'secondfloor', '4thfloor', 'jajus','220','444']
 PORTALMAP = {
     'fitness' : 1,
     'shower' : 0,
@@ -41,6 +41,7 @@ PORTALMAP = {
     '4thfloor' : 3,
     'jajus' : 4,
     '220' : 5,
+    '444' : 6
 }
 
 #start, prologue
