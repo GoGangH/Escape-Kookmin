@@ -9,6 +9,7 @@ from sound import *
 class Game:
     def __init__(self):
         # 초기 설정값
+        os.environ['SDL_VIDEO_CENTERED'] = '1'
         pg.init()
         self.screen = pg.display.set_mode((WIDTH, HEIGHT))
         pg.display.set_caption(TITLE)
