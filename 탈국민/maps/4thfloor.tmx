@@ -638,7 +638,14 @@
   <object id="25" name="wall" x="2880" y="864" width="40" height="878"/>
   <object id="26" name="wall" x="2928" y="864" width="1148" height="688"/>
   <object id="27" name="wall" x="2592" y="1728" width="186" height="160"/>
-  <object id="28" name="end" x="2718" y="1892" width="66" height="124"/>
+  <object id="28" name="portal" type="end" x="2718" y="1892" width="66" height="124">
+   <properties>
+    <property name="dialogue length0" type="int" value="1"/>
+    <property name="dialogue length1" type="int" value="1"/>
+    <property name="dialogue00" value="문이 잠겨있다."/>
+    <property name="dialogue10" value="테디짱의 생사여부를 확인해야한다."/>
+   </properties>
+  </object>
   <object id="29" name="wall" x="0" y="576" width="800" height="336"/>
   <object id="31" name="wall" x="2976" y="144" width="94" height="64"/>
   <object id="32" name="item" type="vending" x="2976" y="144" width="96" height="60">

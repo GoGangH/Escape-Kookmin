@@ -29,6 +29,7 @@ class Game:
 
         self.all_sprites = pg.sprite.Group()
         self.player = Player(self, 0, 0, self.screen, self.mapStage)
+        self.end=False
         self.load_data()
 
     def load_data(self):
@@ -99,6 +100,7 @@ class Game:
         self.all_sprites.update()
         self.items.update()
         self.camera.update(self.player)
+        self.end=self.player.end
 
     def draw(self):
         #스크린 draw

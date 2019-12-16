@@ -56,6 +56,7 @@ class Player(pg.sprite.Sprite):
             'jajus' : '',
             'teddystart' : '쿠민', 
         }
+        self.end=False
 
     def set_pos(self, x, y):
         # 위치 설정
@@ -218,6 +219,10 @@ class Player(pg.sprite.Sprite):
                     self.chating = True
                     self.chatmake(sprite.dialoguelist, self.stageChk[sprite.name])
                     self.stageChk[sprite.name] = 1
+                elif sprite.name == 'teddy':
+                    self.chating = True
+                    self.chatmake(sprite.dialoguelist, self.stageChk[sprite.name])
+                    self.stageChk[sprite.name] = 1
                 else :
                     self.chating = True
                     self.chatmake(sprite.dialoguelist, 0)
@@ -311,6 +316,38 @@ class Player(pg.sprite.Sprite):
                     self.chatmake(sprite.dialoguelist, 0)
                     self.chating = True
                     time.sleep(0.2)
+                elif sprite.name == 'end' :
+                    if self.stageChk['quiz2']==0:
+                        self.pos = self.Beforpos
+                        if self.direction == 0 :
+                            self.pos.y-=20
+                        if self.direction == 1 :
+                            self.pos.x+=20
+                        if self.direction == 2 :
+                            self.pos.y+=20
+                        if self.direction == 3 :
+                            self.pos.x-=20
+                        self.chating = True
+                        self.chatmake(sprite.dialoguelist, 0)
+                    else :
+                        if self.stageChk['teddy']==0:
+                            self.pos = self.Beforpos
+                            if self.direction == 0 :
+                                self.pos.y-=20
+                            if self.direction == 1 :
+                                self.pos.x+=20
+                            if self.direction == 2 :
+                                self.pos.y+=20
+                            if self.direction == 3 :
+                                self.pos.x-=20
+                            self.chating = True
+                            self.chatmake(sprite.dialoguelist, 1)
+                        else :
+                            set_sfx(SOUNDEFFECT_LIST[5])
+                            chat = [['철컥소리와 함께 문이 열렸다.']]
+                            self.chating = True
+                            self.chatmake(chat, 0)
+                            self.end=True
                 else:
                     set_sfx(SOUNDEFFECT_LIST[5])
                     self.Mapstage=PORTALMAP[sprite.name]
