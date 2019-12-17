@@ -292,7 +292,7 @@ class Game:
             set_sfx('switch.ogg')
             self.screen.blit(pImage[i], self.rect)
             pg.display.update()
-            time.sleep(2)
+            time.sleep(3)
             for i in range(6):
                 self.screen.blit(shadowimg, self.rect)
                 pg.display.update()
