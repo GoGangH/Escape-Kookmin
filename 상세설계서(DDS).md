@@ -2,7 +2,7 @@
 ---
 ## 목차
 
-1. [클래스 명세](#1.-클래스-명세)
+1. [클래스 명세](https://github.com/rhrkd1020/Escape-Kookmin/blob/master/%EC%83%81%EC%84%B8%EC%84%A4%EA%B3%84%EC%84%9C(DDS).md#1-%ED%81%B4%EB%9E%98%EC%8A%A4-%EB%AA%85%EC%84%B8)
 
 2. [클래스별 상세 명세](#2.-클래스별-상세-명세)
 
