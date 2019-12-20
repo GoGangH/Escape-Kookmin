@@ -5,8 +5,10 @@
 1. [클래스 명세](https://github.com/rhrkd1020/Escape-Kookmin/blob/master/%EC%83%81%EC%84%B8%EC%84%A4%EA%B3%84%EC%84%9C(DDS).md#1-%ED%81%B4%EB%9E%98%EC%8A%A4-%EB%AA%85%EC%84%B8)
 
 2. [클래스별 상세 명세](https://github.com/rhrkd1020/Escape-Kookmin/blob/master/%EC%83%81%EC%84%B8%EC%84%A4%EA%B3%84%EC%84%9C(DDS).md#2-%ED%81%B4%EB%9E%98%EC%8A%A4%EB%B3%84-%EC%83%81%EC%84%B8-%EB%AA%85%EC%84%B8)
-
+    1. [Chat]()
+    
 ---
+
 ## 1. 클래스 명세
 
 | 클래스 ID | 클래스 이름 | 설명                                                         |
@@ -26,3 +28,23 @@
 |  CL - 13  |   Camera    |                                                              |
 
 ## 2. 클래스별 상세 명세
+
+1. chat.py
+
+|                         |     이름      | 역할, 설명                                                   |
+| :---------------------: | :-----------: | :----------------------------------------------------------- |
+| attributes (properties) |    chatter    | 대화창 UI에서 이름에 들어갈 문자열                           |
+|                         |    screen     | 게임화면                                                     |
+|                         | backgroundimg | 대화창 UI의 대화창 배경이 될 pygame 이미지                   |
+|                         |  chatterimg   | 대화창 UI의 이름 배경이 될 pygame 이미지                     |
+|                         |   chatRect    | backgroundimg의 영역                                         |
+|                         |  chatterRect  | chatterimg의 영역                                            |
+|                         |     font      | 대화창에 그릴 텍스트의 pygame 폰트                           |
+|                         |    indexX     | 대화창의 페이지                                              |
+|                         |    indexY     | 대화 횟수                                                    |
+|                         |   dialogue    | 대화창의 내용이 될 문자열 리스트                             |
+|         method          |   drawback    | 대화창 배경을 screen에 그린다.                               |
+|                         |  drawchatter  | 대화창 이름 배경을 screen에 그린다.                          |
+|                         |   drawText    | 대화창의 텍스트를 설정하고 screen에 그린다.                  |
+|                         |   drawchat    | chatter가 빈 문자열이 아니면 drawchatter() 함수를 호출한다. 이후에 drawback(), drawText() 함수를 호출하고 indexY값에 1을 더한다. pygame.display.update() 함수를 호출한다. |
+|                         |  hasNextPage  | 더 넘길 대화창이 있는지 판단한다.                            |
