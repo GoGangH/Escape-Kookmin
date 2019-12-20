@@ -47,3 +47,52 @@
 |                         |   drawText    | 대화창의 텍스트를 설정하고 screen에 그린다.                  |
 |                         |   drawchat    | chatter가 빈 문자열이 아니면 drawchatter() 함수를 호출한다. 이후에 drawback(), drawText() 함수를 호출하고 indexY값에 1을 더한다. pygame.display.update() 함수를 호출한다. |
 |                         |  hasNextPage  | 더 넘길 대화창이 있는지 판단한다.                            |
+
+---
+#### - Game
+
+|                         |     이름      | 역할, 설명                                                   |
+| :---------------------: | :-----------: | :----------------------------------------------------------- |
+| attributes (properties) |    screen    | 게임화면 저장 |
+|                         |    rect     | 게임화면 위치 저장 |
+|                         | clock | 시간 저장 |
+|                         |  mapStage   | 지금 스테이지 list index |
+|                         |   beforStage    | 이전 스테이지 list index |
+|                         |  paused  | 정지 체크 |
+|                         |     mapname      | 스테이지 맵의 이름 |
+|                         | shadow | pygame의 크기를 shadow의 크기로 저장 |
+|                         | shadow.fill | 채우는 색상 저장 |
+|                         |   shadow_mask    | 그림자의 이미지 저장 |
+|                         |   shadow_rect    | 그림자의 위치 |
+|                         |   all_sprites    | 모든 sprite 저장 |
+|                         |   player    | Player객체 저장 변수 |
+
+---
+#### - Player
+
+|                         |     이름      | 역할, 설명                                                   |
+| :---------------------: | :-----------: | :----------------------------------------------------------- |
+| attributes (properties) |    groups    | all sprite group 저장 |
+|                         |    game     | pygame 정보 저장 |
+|                         | image | 캐릭터 이미지 저장 |
+|                         |  game_folder   | 폴더 위치 설정 |
+|                         |   img_folder    | img폴더 위치 설정 |
+|                         |  beforKey  | 이전 키값 저장 |
+|                         |     rect      | 플레이어의 맵상 위치 저장 |
+|                         | vel | 플레이어의 이동 속도별 이동 저장 |
+|                         | pos | 플레이어 임시 위치 저장 |
+|                         |   Beforpos    | 이전 위치 저장 |
+|                         |   screen    | 게임 화면 저장 |
+|                         |   map    | 맵 저장 |
+|                         |   chat    | chat객체 생성 저장 |
+|                         |   chating    | 체팅을 하는지 확인 |
+|                         |   mapping    | 맵을 보는지 확인 |
+|                         |   Mapstage    | 맵의 스테이지 저장 |
+|                         |   stupidDegree    | 아무것도 없는 곳에 클릭했을때 뜰 chat index값 저장 |
+|                         |   direction    | 캐릭터가 보는 방향 설치 |
+|                         |   posdirection    | 캐릭터의 보는 방향 맵 위치 값 저장 |
+|                         |   beformove    | 이전 캐릭터 움직임 저장 |
+|                         |   escape    | 탈출할 위치 저장 |
+|                         |   move    | 캐릭터가 가만히 있는 시간 저장 |
+|                         |   imgname    | 이미지 이름 list index 저장 |
+|                         |   stageChk    | 스테이지속 상호작용 횟수 체크 |
