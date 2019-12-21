@@ -9,8 +9,8 @@
 - [chat.py](#--chat.py)
 - [settings.py](#--settings.py)
 - [quiz.py](#--quiz.py)
-- [showmap.py](#--showmap.py)
-- [sound.py](#--sound.py)
+- [showmap.py](#--[showmap.py]])
+- [sound.py](#--[sound.py])
 
 ---
 <br></br>
