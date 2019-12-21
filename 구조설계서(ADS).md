@@ -2,15 +2,15 @@
 ---
 ## 목차
 
-- [main.py](#--main.py)
-- [game.py](#--game.py)
-- [sprites.py](#--sprites.py)
-- [tilemap.py](#--tilemap.py)
-- [chat.py](#--chat.py)
-- [settings.py](#--settings.py)
-- [quiz.py](#--quiz.py)
-- [showmap.py](#--[showmap.py]])
-- [sound.py](#--[sound.py])
+- main.py
+- game.py
+- sprites.py
+- tilemap.py
+- chat.py
+- settings.py
+- quiz.py
+- showmap.py
+- sound.py
 
 ---
 <br></br>
