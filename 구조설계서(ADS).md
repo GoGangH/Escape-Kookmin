@@ -1,13 +1,26 @@
-구조설계서(ADS)
-===
+# 소프트웨어 구조설계서(ADS)
 ---
-main.py
+## 목차
+
+- [main.py](#--main.py)
+- [game.py](#--game.py)
+- [sprites.py](#--sprites.py)
+- [tilemap.py](#--tilemap.py)
+- [chat.py](#--chat.py)
+- [settings.py](#--settings.py)
+- [quiz.py](#--quiz.py)
+- [showmap.py](#--showmap.py)
+- [sound.py](#--sound.py)
+
+---
+<br></br>
+#### - [main.py](https://github.com/rhrkd1020/Escape-Kookmin/blob/master/%ED%83%88%EA%B5%AD%EB%AF%BC/main.py)
 
 <p>game객체를 생성하고 프롤로그와 시작화면을 띄운다.</p> 
 
----
+<br></br>
 
-game.py
+#### - [game.py](https://github.com/rhrkd1020/Escape-Kookmin/blob/master/%ED%83%88%EA%B5%AD%EB%AF%BC/game.py)
 
 | 클래스 | 메서드 | 입력인자 | 출력인자 | 기능 |
 | ---- | ---- | ---- | ---- | ---- |
@@ -24,8 +37,8 @@ game.py
 |  | `ending` | - | - | 게임이 끝나면 엔딩 스토리와 크레딧을 띄워준다. |
 |  | `render_shadow` | - | - | 게임화면에 그림자효과와 빛효과를 띄워준다. |
 ---
-
-sprites.py
+<br></br>
+#### - [sprites.py](https://github.com/rhrkd1020/Escape-Kookmin/blob/master/%ED%83%88%EA%B5%AD%EB%AF%BC/sprites.py)
 
 | 클래스 | 메서드 | 입력인자 | 출력인자 | 기능 |
 | ---- | ---- | ---- | ---- | ---- |
@@ -38,7 +51,7 @@ sprites.py
 |  | `chk_potal` | - | - | 캐릭터가 포탈에 들어갔는지를 확인해주고 그 위치로 이동시킨다. |
 |  | `chkdialogue` | - | - | 게임의 대화창을 체크해준다. |
 |  | `chknpc` | - | - | 상호작용키를 눌렀을 때 npc를 만났는지 체크해주고 그에 맞는 대화창을 띄워준다. |
-|  | `chatmake` | dialogue, num, name='' | - | 체팅창을 띄울때 들어가는 정보들을 매개변수로 받고 그 속성을 가진 객체를 만들어 대화창을 띄운다. |
+|  | `chatmake` | dialogue, num, name='' | - | 채팅창을 띄울때 들어가는 정보들을 매개변수로 받고 그 속성을 가진 객체를 만들어 대화창을 띄운다. |
 |  | `update` | - | - | 캐릭터의 위치, 벽체크, npc 체크, 포탈 체크, 대화창 체크를 하게 하는 매서드이다. |
 | Npc | `__init__` | game, x, y, type | - | class 객체를 선언시 class의 속성을 정의 한다. |
 |  | `chk_walls` | - | - | npc가 npc벽에 닿았는지 체크하고 그에 따른 변화를 준다. |
@@ -56,8 +69,8 @@ sprites.py
 | Dialogue | `__init__` | game, type, x, y, w, h, properties | - | class 객체를 선언시 class의 속성을 정의 한다. |
 |  | `make_dialogue` | - | - | tmx에서 properties를 입력받아 멤버 리스트에 대화를 저장한다. |
 ---
-
-tilemap.py
+<br></br>
+#### - [tilemap.py](https://github.com/rhrkd1020/Escape-Kookmin/blob/master/%ED%83%88%EA%B5%AD%EB%AF%BC/tilemap.py)
 
 | 클래스 | 메서드 | 입력인자 | 출력인자 | 기능 |
 | ---- | ---- | ---- | ---- | ---- |
@@ -69,52 +82,59 @@ tilemap.py
 |  | `apply_rect` | rect | rect.move(self.camera.topleft) |  |
 |  | `update` | target | - | 카메라의 위치 변경과 카메라가 맵밖에 나가지 않았는지를 설정해준다. |
 ---
+<br></br>
+#### - [chat.py](https://github.com/rhrkd1020/Escape-Kookmin/blob/master/%ED%83%88%EA%B5%AD%EB%AF%BC/chat.py)
 
-chat.py
-수정해야할것
 | 클래스 | 메서드 | 입력인자 | 출력인자 | 기능 |
 | ---- | ---- | ---- | ---- | ---- |
 | Chat | `__init__` | screen, dialogue, index=0, chat='' | - | class 객체를 선언시 class의 속성을 정의 한다. |
-|  | `chating` | - | - | 채팅 배경 이미지를 게임 스크린에 그린다. |
+|  | `drawback` | - | - | 채팅 배경 이미지를 게임 스크린에 그린다. |
+|  | `drawchatter` | - | - | 채팅 이름 이미지를 게임 스크린에 그린다.
 |  | `drawText` | - | - | 채팅 내용을 게임 스크린에 그린다. |
-| | `drawchat` | - | - | `chating`, `drawText`를 실행하여 스크린에 그려낸다. |
-|  | `hasNextPage` | - | boolean | 더 그릴 채팅이 남아있는지 판단한다. |
----
+| | `drawchat` | - | - | `drawchatter`, `drawback`, `drawText` 메서드를 실행하여 스크린에 그려낸다. |
+|  | `hasNextPage` | - | boolean | 더 보여줄 dialogue가 남아있는지 판단한다. |
 
-settings.py
+---
+<br></br>
+
+#### - [settings.py](https://github.com/rhrkd1020/Escape-Kookmin/blob/master/%ED%83%88%EA%B5%AD%EB%AF%BC/settings.py)
 
 <p> 게임의 상수를 정의한다.<p>
 
----
+<br></br>
 
-quiz.py 추가해야함
+#### - [quiz.py](https://github.com/rhrkd1020/Escape-Kookmin/blob/master/%ED%83%88%EA%B5%AD%EB%AF%BC/quiz.py)
 
 | 클래스 | 메서드 | 입력인자 | 출력인자 | 기능 |
 | ---- | ---- | ---- | ---- | ---- |
 | Quiz | `__init__` | screen, game, quizanswer, dialogue | - | class 객체를 선언시 class의 속성을 정의 한다. |
-|  | `drawEnter` | - | - |  |
-|  | `drawQuiz` | - | - |  |
-|  | `drawText` | - | - |  |
-|  | `get_answer` | - | - |  |
-|  | `isCorrect` | - | - |  |
-|  | `drawCorrect` | - | - |  |
-|  | `startQuiz` | - | - |  |
+|  | `drawEnter` | - | - | 정답 입력창 이미지를 화면에 그린다. |
+|  | `drawQuiz` | - | - | 퀴즈 문제 이미지를 화면에 그린다. |
+|  | `drawText` | - | - | 플레이어가 입력한 텍스트를 화면에 그린다. |
+|  | `get_answer` | - | - | 키보드 입력을 처리한다. |
+|  | `isCorrect` | - | - | 플레이어가 입력한 텍스트가 정답인지 확인한다. |
+|  | `drawCorrect` | - | - | 플레이어의 정답 여부에 따라 다른 텍스트를 화면에 그린다. |
+|  | `startQuiz` | - | - | 퀴즈 풀기를 시작한다. |
+
 ---
-showmap.py 추가해야함
+<br></br>
+#### - [showmap.py](https://github.com/rhrkd1020/Escape-Kookmin/blob/master/%ED%83%88%EA%B5%AD%EB%AF%BC/showmap.py)
 
 | 클래스 | 메서드 | 입력인자 | 출력인자 | 기능 |
 | ---- | ---- | ---- | ---- | ---- |
 | Maps | `__init__` | screen, index=0 | - | class 객체를 선언시 class의 속성을 정의 한다. |
-|  | `updateMapimg` | - | - |  |
-|  | `drawMap` | - | - |  |
-|  | `drawArrow` | - | - |  |
-|  | `get_keys` | - | - |  |
-|  | `showMap` | - | - |  |
+|  | `updateMapimg` | - | - | 맵 층수에 따라 맵 이미지를 업데이트한다. |
+|  | `drawMap` | - | - | 맵 이미지를 화면에 그린다. |
+|  | `drawArrow` | - | - | 좌측, 우측 화살표를 화면에 그린다. |
+|  | `get_keys` | - | - | 키보드 입력을 처리한다. |
+|  | `showMap` | - | - | 맵 보기를 시작한다. |
 
 ---
-sound.py 
+<br></br>
+#### - [sound.py](https://github.com/rhrkd1020/Escape-Kookmin/blob/master/%ED%83%88%EA%B5%AD%EB%AF%BC/sound.py) 
 
 | 클래스 | 메서드 | 입력인자 | 출력인자 | 기능 |
 | ---- | ---- | ---- | ---- | ---- |
 |  | `set_music` | filename, volume=0.5 | - | 파일이름에 맞는 노래를 설정해준다. |
 | | `set_sfx` | filename, volume=0.5 | - | 파일이름에 맞는 효과음을 설정해준다.  |
+---
