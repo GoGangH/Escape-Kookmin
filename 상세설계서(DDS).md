@@ -21,6 +21,8 @@
 <br></br>    
 ---
 ## 1. 클래스 명세
+![이미지이름](./탈국민_다이어그램.png)
+탈국민 게임의 class Diagram
 
 | 클래스 ID | 클래스 이름 | 설명                                                         |
 | :-------: | :---------: | ------------------------------------------------------------ |
@@ -89,7 +91,7 @@
 |                         | dialogues | Dialogue 객체 sprite Group |
 |                         | camera | Camera 객체 |
 |                         | playing | 게임이 진행중인지 확인 |
-|                         | dt | ??? 이거 사용안하는 변수같은데 빼버리자 |
+|                         | dt |  게임의 fps 저장 |
 |         method          | load_data | 맵의 이미지와 정보를 불러온다. |
 |                         | new | 각 객체별 sprite 그룹을 생성하고 객체에 맞는 sprite를 저장한다. |
 |                         | run | event, new, update, draw 메서드를 호출하여 게임의 변화를 체크하고 스테이지와 pause를 확인한다. |
@@ -212,8 +214,8 @@
 |                         | rect | image 위치 저장 |
 |                         | pos | npc 임시 위치 저장 |
 |                         | vel | npc의 이동속도별 위치 저장 |
-|                         | sleep | ??? |
-|                         | chk | ??? 안쓰는변수 |
+|                         | sleep | npc의 처음 움직임을 멈출때 사용 |
+|                         | chk | npc에 상호작용을 하여 체크를 할 일이 있을때 사용 |
 |                         | direction | NPC가 바라보는 방향 설정 |
 |                         | pause | npc가 멈췄는지 확인 |
 |         method          | chk_walls | npc가 npc벽에 닿았는지 체크하고 그에 따른 변화를 준다. |
@@ -326,6 +328,6 @@
 | attributes (properties) | camera | 카메라 뷰의 위치 |
 |                         | width | 카메라 뷰의 가로길이 |
 |                         | height | 카메라 뷰의 세로길이 |
-|         method          | apply | ??? |
-|                         | apply_rect | ??? |
+|         method          | apply | 카메라의 왼쪽 상단 위치를 이용하여 변화 |
+|                         | apply_rect | 카메라의 왼쪽 상단 위치를 이용하여 변화 |
 |                         | update | 카메라 위치를 갱신한다. |

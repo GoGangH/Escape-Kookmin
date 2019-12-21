@@ -78,8 +78,8 @@
 |  | `render` | surface | - | 맵을 화면에 bilt해준다. |
 |  | `make_map` |  | - | 맵을 만들어준다. |
 | Camera | `__init__` | width, height | - | class 객체를 선언시 class의 속성을 정의 한다. |
-|  | `apply` | entity | entity.rect.move(self.camera.topleft) |  |
-|  | `apply_rect` | rect | rect.move(self.camera.topleft) |  |
+|  | `apply` | entity | entity.rect.move(self.camera.topleft) | 입력받은 entity의 위치를 카메라의 좌측상단을 이용하여 변화 |
+|  | `apply_rect` | rect | rect.move(self.camera.topleft) | 입력받은 rect를 카메라의 좌측상단을 이용하여 변화 |
 |  | `update` | target | - | 카메라의 위치 변경과 카메라가 맵밖에 나가지 않았는지를 설정해준다. |
 ---
 <br></br>
